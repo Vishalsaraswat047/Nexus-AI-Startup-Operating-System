@@ -453,7 +453,8 @@ export async function tickExecution(companyId: string): Promise<ExecutionView | 
     if (task.phaseId !== phase.id) continue;
     if (task.status === 'completed' || task.status === 'failed' || task.status === 'blocked') continue;
 
-    const depsSatisfied = task.dependencies.every((depId) => {
+    const deps = task.dependencies ?? [];
+    const depsSatisfied = deps.length === 0 || deps.every((depId) => {
       const dep = tasks.find((t) => t.id === depId);
       return dep && dep.status === 'completed';
     });

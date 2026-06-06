@@ -10189,6 +10189,167 @@
       "companyId": "co-user-usr-1780641737172-3114e37e",
       "events": [
         {
+          "id": "evt-1780769863429-h2qc4t",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769863429,
+          "type": "memory_written",
+          "fromAgent": "CEO Agent",
+          "department": "Autonomous Control Unit",
+          "message": "[learning] Autonomous run finished: 11 phases completed.",
+          "payload": {
+            "memoryId": "mem-1780769863422-e5c066",
+            "memoryType": "learning"
+          }
+        },
+        {
+          "id": "evt-1780769863415-svcztr",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769863415,
+          "type": "workflow_step",
+          "fromAgent": "CEO Agent",
+          "department": "Executive Layer",
+          "message": "All phases complete — continuous brand operations engaged.",
+          "payload": {
+            "category": "Other"
+          }
+        },
+        {
+          "id": "evt-1780769863408-zb3kdm",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769863408,
+          "type": "memory_written",
+          "fromAgent": "COO Agent",
+          "department": "Autonomous Control Unit",
+          "message": "[learning] Scaling Operations completed with 4 tasks delivering 3 findings for Other business.",
+          "payload": {
+            "memoryId": "mem-1780769863400-wgwsz6",
+            "memoryType": "learning"
+          }
+        },
+        {
+          "id": "evt-1780769863394-zwx2fp",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769863394,
+          "type": "memory_written",
+          "fromAgent": "CEO Agent",
+          "department": "Autonomous Control Unit",
+          "message": "[strategic] CEO recommendation after Scaling Operations for Other business: Lock Business Model. Process automation audit completed ",
+          "payload": {
+            "memoryId": "mem-1780769863387-msiktu",
+            "memoryType": "strategic"
+          }
+        },
+        {
+          "id": "evt-1780769863381-xkobmb",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769863381,
+          "type": "ceo_recommendation",
+          "fromAgent": "CEO Agent",
+          "department": "Executive Layer",
+          "message": "Next business-critical decision: Lock Business Model",
+          "payload": {
+            "completed": "Process automation audit completed with 4 subtasks processed.. Team & org expansion plan completed with 4 subtasks processed.",
+            "learned": "Key findings from Scaling Operations: Runway Months: 6.",
+            "blocked": "No critical blockers detected.",
+            "nextStep": "Lock Business Model",
+            "reason": "Locks revenue streams, unit economics, and the path to break-even before we spend on anything cosmetic.",
+            "departments": [
+              "Executive Layer",
+              "Financial Control"
+            ],
+            "revenueDriver": "Every dollar of revenue depends on a defined, profitable revenue model. This step decides what the company actually sells and at what margin.",
+            "launchUnblocker": "Until this is done, Launch and validate  in 90 days cannot launch or earn first revenue.",
+            "highestRoi": "High ROI, direct revenue impact — this is the most valuable thing the company can do this week.",
+            "category": "Other",
+            "basedOnFindings": [
+              "Process automation audit completed with 4 subtasks processed.",
+              "Team & org expansion plan completed with 4 subtasks processed.",
+              "Growth channel doubling completed with 4 subtasks processed.",
+              "Financial model: Direct-to-consumer sales of a premium smartwatch rental service for tourists. Revenue streams include daily/weekly rental fees (₹800-1200/day), damage waiver add-ons (₹200/day), and lost/stolen device replacement charges (₹15,000). Ancillary revenue from selling local eSIM data plans (₹500/plan) and guided tour app subscriptions (₹300/trip)."
+            ]
+          }
+        },
+        {
+          "id": "evt-1780769863369-81mrm4",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769863369,
+          "type": "task_completed",
+          "fromAgent": "Finance Planner Agent",
+          "department": "Executive Layer",
+          "message": "Completed: Financial scaling model",
+          "payload": {
+            "taskId": "task-1780686066969-ibd78d"
+          }
+        },
+        {
+          "id": "evt-1780769863352-nsnht5",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769863352,
+          "type": "memory_written",
+          "fromAgent": "Finance Planner Agent",
+          "department": "Autonomous Control Unit",
+          "message": "[operational] Finance Planner Agent completed \"Unit economics watch\": {\"revenue_model\":\"Direct-to-consumer sales of a premium smartwat",
+          "payload": {
+            "memoryId": "mem-1780769863339-tbk4bf",
+            "memoryType": "operational"
+          }
+        },
+        {
+          "id": "evt-1780769863321-fbawa6",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769863321,
+          "type": "agent_action",
+          "fromAgent": "Finance Planner Agent",
+          "department": "Financial Control",
+          "message": "Completed: Unit economics watch (115s)"
+        },
+        {
+          "id": "evt-1780769748830-dbdftn",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769748830,
+          "type": "agent_action",
+          "fromAgent": "Finance Planner Agent",
+          "department": "Financial Control",
+          "message": "Executing: Unit economics watch",
+          "payload": {
+            "taskId": "ext-1780686066786-bfifsp",
+            "agentId": "finance_planner_agent",
+            "phase": "Scaling Operations"
+          }
+        },
+        {
+          "id": "evt-1780769748798-2iqrjl",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769748798,
+          "type": "agent_action",
+          "fromAgent": "Finance Planner Agent",
+          "department": "Financial Control",
+          "message": "Starting: Unit economics watch"
+        },
+        {
+          "id": "evt-1780769625680-i55c8d",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769625680,
+          "type": "agent_action",
+          "fromAgent": "Finance Planner Agent",
+          "department": "Financial Control",
+          "message": "Executing: Unit economics watch",
+          "payload": {
+            "taskId": "ext-1780686066786-bfifsp",
+            "agentId": "finance_planner_agent",
+            "phase": "Scaling Operations"
+          }
+        },
+        {
+          "id": "evt-1780769625671-cwg3a4",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "timestamp": 1780769625671,
+          "type": "agent_action",
+          "fromAgent": "Finance Planner Agent",
+          "department": "Financial Control",
+          "message": "Starting: Unit economics watch"
+        },
+        {
           "id": "evt-1780739089639-k9jaqt",
           "companyId": "co-user-usr-1780641737172-3114e37e",
           "timestamp": 1780739089639,
@@ -16371,158 +16532,6 @@
             "round": 30938,
             "directiveTitles": []
           }
-        },
-        {
-          "id": "evt-1780729034772-zb4t7p",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729034772,
-          "type": "agent_action",
-          "fromAgent": "CEO Agent",
-          "department": "Executive Layer",
-          "message": "Round 30938: CEO is reasoning about the next highest-leverage moves for Launch and validate  in 90 days...",
-          "payload": {
-            "round": 30938
-          }
-        },
-        {
-          "id": "evt-1780729034646-i5zhco",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729034646,
-          "type": "memory_written",
-          "fromAgent": "CEO Agent",
-          "department": "Autonomous Control Unit",
-          "message": "[operational] Continuous ops round 30937: .",
-          "payload": {
-            "memoryId": "mem-1780729034638-ph6aiq",
-            "memoryType": "operational"
-          }
-        },
-        {
-          "id": "evt-1780729034629-7sfn7n",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729034629,
-          "type": "agent_action",
-          "fromAgent": "CEO Agent",
-          "department": "Executive Layer",
-          "message": "Round 30937: CEO directed 0 new brand operations across 0 departments.",
-          "payload": {
-            "round": 30937,
-            "directiveTitles": []
-          }
-        },
-        {
-          "id": "evt-1780729034575-t23dy6",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729034575,
-          "type": "agent_action",
-          "fromAgent": "CEO Agent",
-          "department": "Executive Layer",
-          "message": "Round 30937: CEO is reasoning about the next highest-leverage moves for Launch and validate  in 90 days...",
-          "payload": {
-            "round": 30937
-          }
-        },
-        {
-          "id": "evt-1780729034212-jz88fg",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729034212,
-          "type": "memory_written",
-          "fromAgent": "CEO Agent",
-          "department": "Autonomous Control Unit",
-          "message": "[operational] Continuous ops round 30936: .",
-          "payload": {
-            "memoryId": "mem-1780729034206-gzpsg3",
-            "memoryType": "operational"
-          }
-        },
-        {
-          "id": "evt-1780729034199-h20tze",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729034199,
-          "type": "agent_action",
-          "fromAgent": "CEO Agent",
-          "department": "Executive Layer",
-          "message": "Round 30936: CEO directed 0 new brand operations across 0 departments.",
-          "payload": {
-            "round": 30936,
-            "directiveTitles": []
-          }
-        },
-        {
-          "id": "evt-1780729034157-ezyibv",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729034157,
-          "type": "agent_action",
-          "fromAgent": "CEO Agent",
-          "department": "Executive Layer",
-          "message": "Round 30936: CEO is reasoning about the next highest-leverage moves for Launch and validate  in 90 days...",
-          "payload": {
-            "round": 30936
-          }
-        },
-        {
-          "id": "evt-1780729033982-6haxli",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729033982,
-          "type": "memory_written",
-          "fromAgent": "CEO Agent",
-          "department": "Autonomous Control Unit",
-          "message": "[operational] Continuous ops round 30935: .",
-          "payload": {
-            "memoryId": "mem-1780729033973-cqt58p",
-            "memoryType": "operational"
-          }
-        },
-        {
-          "id": "evt-1780729033964-l1o7ty",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729033964,
-          "type": "agent_action",
-          "fromAgent": "CEO Agent",
-          "department": "Executive Layer",
-          "message": "Round 30935: CEO directed 0 new brand operations across 0 departments.",
-          "payload": {
-            "round": 30935,
-            "directiveTitles": []
-          }
-        },
-        {
-          "id": "evt-1780729033902-4inwql",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729033902,
-          "type": "agent_action",
-          "fromAgent": "CEO Agent",
-          "department": "Executive Layer",
-          "message": "Round 30935: CEO is reasoning about the next highest-leverage moves for Launch and validate  in 90 days...",
-          "payload": {
-            "round": 30935
-          }
-        },
-        {
-          "id": "evt-1780729033439-693nqs",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729033439,
-          "type": "memory_written",
-          "fromAgent": "CEO Agent",
-          "department": "Autonomous Control Unit",
-          "message": "[operational] Continuous ops round 30934: .",
-          "payload": {
-            "memoryId": "mem-1780729033430-ustmjh",
-            "memoryType": "operational"
-          }
-        },
-        {
-          "id": "evt-1780729033422-hvg2dg",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "timestamp": 1780729033422,
-          "type": "agent_action",
-          "fromAgent": "CEO Agent",
-          "department": "Executive Layer",
-          "message": "Round 30934: CEO directed 0 new brand operations across 0 departments.",
-          "payload": {
-            "round": 30934,
-            "directiveTitles": []
-          }
         }
       ],
       "tasks": [
@@ -16675,7 +16684,7 @@
           "department": "Executive Layer",
           "project": "Launch and validate  in 90 days",
           "createdAt": 1780686066969,
-          "updatedAt": 1780686068584,
+          "updatedAt": 1780769863366,
           "handoffChain": [
             "COO Agent"
           ]
@@ -17280,7 +17289,7 @@
           "current": 91,
           "unit": "%",
           "source": "task_completion",
-          "updatedAt": 1780738786274
+          "updatedAt": 1780769890133
         },
         {
           "id": "kpi-1780685609604-772kdr",
@@ -17447,6 +17456,38 @@
         }
       ],
       "memoryWrites": [
+        {
+          "id": "mem-1780769863422-e5c066",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "type": "learning",
+          "content": "Autonomous run finished: 11 phases completed.",
+          "agent": "CEO Agent",
+          "timestamp": 1780769863422
+        },
+        {
+          "id": "mem-1780769863400-wgwsz6",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "type": "learning",
+          "content": "Scaling Operations completed with 4 tasks delivering 3 findings for Other business.",
+          "agent": "COO Agent",
+          "timestamp": 1780769863400
+        },
+        {
+          "id": "mem-1780769863387-msiktu",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "type": "strategic",
+          "content": "CEO recommendation after Scaling Operations for Other business: Lock Business Model. Process automation audit completed with 4 subtasks processed. Team & org expansion plan completed with 4 subtasks processed.",
+          "agent": "CEO Agent",
+          "timestamp": 1780769863387
+        },
+        {
+          "id": "mem-1780769863339-tbk4bf",
+          "companyId": "co-user-usr-1780641737172-3114e37e",
+          "type": "operational",
+          "content": "Finance Planner Agent completed \"Unit economics watch\": {\"revenue_model\":\"Direct-to-consumer sales of a premium smartwatch rental service for tourists. Revenue streams include daily/weekly rental fees (₹800-1200/day), damage waiver add-ons (₹200/day), and lost/stolen device replacement charges (₹15,000). Ancillary revenue from selling local eSIM data plans (₹500/plan) and guided tour app subscriptions (₹300/trip).\",\"cost_structure\":{\"fixed_costs\":\"₹85,000/month\",\"variable_costs\":\"₹350 per rental day\",\"total_initial_investment\":\"₹4,50,000\"},\"unit_econ",
+          "agent": "Finance Planner Agent",
+          "timestamp": 1780769863339
+        },
         {
           "id": "mem-1780739089570-43vt07",
           "companyId": "co-user-usr-1780641737172-3114e37e",
@@ -19814,38 +19855,6 @@
           "content": "Continuous ops round 30806: .",
           "agent": "CEO Agent",
           "timestamp": 1780728974694
-        },
-        {
-          "id": "mem-1780728974423-k1qw1t",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "type": "operational",
-          "content": "Continuous ops round 30805: .",
-          "agent": "CEO Agent",
-          "timestamp": 1780728974423
-        },
-        {
-          "id": "mem-1780728974133-dy8q50",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "type": "operational",
-          "content": "Continuous ops round 30804: .",
-          "agent": "CEO Agent",
-          "timestamp": 1780728974133
-        },
-        {
-          "id": "mem-1780728973920-anfo60",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "type": "operational",
-          "content": "Continuous ops round 30803: .",
-          "agent": "CEO Agent",
-          "timestamp": 1780728973920
-        },
-        {
-          "id": "mem-1780728973614-ptgxt0",
-          "companyId": "co-user-usr-1780641737172-3114e37e",
-          "type": "operational",
-          "content": "Continuous ops round 30802: .",
-          "agent": "CEO Agent",
-          "timestamp": 1780728973614
         }
       ],
       "socialWorkflow": {
@@ -19854,12 +19863,12 @@
       },
       "replanHistory": [],
       "execution": {
-        "status": "running",
+        "status": "completed",
         "objective": "Launch and validate  in 90 days",
         "location": "Not specified",
         "targetCustomers": "Tourist",
         "timelineDays": 90,
-        "currentPhaseId": "phase-1780685609845-4fd100",
+        "currentPhaseId": null,
         "phases": [
           {
             "id": "phase-1780685609845-w1b3zh",
@@ -19947,7 +19956,7 @@
             "name": "Scaling Operations",
             "department": "Executive Layer",
             "order": 10,
-            "status": "running"
+            "status": "completed"
           }
         ],
         "tasks": [
@@ -21153,7 +21162,7 @@
             "title": "Financial scaling model",
             "assignee": "Finance Planner Agent",
             "department": "Executive Layer",
-            "status": "running",
+            "status": "completed",
             "subtasks": [
               {
                 "id": "sub-1780686066786-7nqum9",
@@ -21173,13 +21182,72 @@
               {
                 "id": "sub-1780686066786-8y0yba",
                 "title": "Unit economics watch",
-                "status": "running"
+                "status": "completed"
               }
             ],
-            "startedAt": 1780686066786
+            "startedAt": 1780686066786,
+            "completedAt": 1780769863360,
+            "output": "{\n  \"findings\": {\n    \"revenue_model\": \"Direct-to-consumer sales of a premium smartwatch rental service for tourists. Revenue streams include daily/weekly rental fees (₹800-1200/day), damage waiver add-ons (₹200/day), and lost/stolen device replacement charges (₹15,000). Ancillary revenue from selling local eSIM data plans (₹500/plan) and guided tour app subscriptions (₹300/trip).\",\n    \"cost_structure\": {\n      \"fixed_costs\": \"₹85,000/month\",\n      \"variable_costs\": \"₹350 per rental day\",\n      \"total_initial_investment\": \"₹4,50,000\"\n    },\n    \"unit_economics\": {\n      \"price_per_unit\": \"₹1,000\",\n      \"cost_per_unit\": \"₹350\",\n      \"gross_margin\": \"65%\"\n    },\n    \"break_even\": {\n      \"units_per_month\": 131,\n      \"timeline_months\": 3\n    },\n    \"runway_months\": 6\n  },\n  \"confidence\": \"medium\"\n}",
+            "findings": {
+              "revenue_model": "Direct-to-consumer sales of a premium smartwatch rental service for tourists. Revenue streams include daily/weekly rental fees (₹800-1200/day), damage waiver add-ons (₹200/day), and lost/stolen device replacement charges (₹15,000). Ancillary revenue from selling local eSIM data plans (₹500/plan) and guided tour app subscriptions (₹300/trip).",
+              "cost_structure": {
+                "fixed_costs": "₹85,000/month",
+                "variable_costs": "₹350 per rental day",
+                "total_initial_investment": "₹4,50,000"
+              },
+              "unit_economics": {
+                "price_per_unit": "₹1,000",
+                "cost_per_unit": "₹350",
+                "gross_margin": "65%"
+              },
+              "break_even": {
+                "units_per_month": 131,
+                "timeline_months": 3
+              },
+              "runway_months": 6
+            }
           }
         ],
         "deliverables": [
+          {
+            "id": "del-1780769863377-ddrrrn",
+            "phaseId": "phase-1780685609845-4fd100",
+            "title": "Process automation audit",
+            "summary": "Process automation audit completed with 4 subtasks processed.",
+            "agent": "Automation Agent",
+            "createdAt": 1780769863377,
+            "details": []
+          },
+          {
+            "id": "del-1780769863377-3z02r2",
+            "phaseId": "phase-1780685609845-4fd100",
+            "title": "Team & org expansion plan",
+            "summary": "Team & org expansion plan completed with 4 subtasks processed.",
+            "agent": "Operations Manager Agent",
+            "createdAt": 1780769863377,
+            "details": []
+          },
+          {
+            "id": "del-1780769863377-1ctc7n",
+            "phaseId": "phase-1780685609845-4fd100",
+            "title": "Growth channel doubling",
+            "summary": "Growth channel doubling completed with 4 subtasks processed.",
+            "agent": "Growth Agent",
+            "createdAt": 1780769863377,
+            "details": []
+          },
+          {
+            "id": "del-1780769863377-ufgwja",
+            "phaseId": "phase-1780685609845-4fd100",
+            "title": "Financial scaling model",
+            "summary": "Financial model: Direct-to-consumer sales of a premium smartwatch rental service for tourists. Revenue streams include daily/weekly rental fees (₹800-1200/day), damage waiver add-ons (₹200/day), and lost/stolen device replacement charges (₹15,000). Ancillary revenue from selling local eSIM data plans (₹500/plan) and guided tour app subscriptions (₹300/trip).",
+            "agent": "Finance Planner Agent",
+            "createdAt": 1780769863377,
+            "details": [
+              "• Revenue Model: Direct-to-consumer sales of a premium smartwatch rental service for tourists. Revenue streams include daily/weekly rental fees (₹800-1200/day), damage waiver add-ons (₹200/day), and lost/stolen device replacement charges (₹15,000). Ancillary revenue from selling local eSIM data plans (₹500/plan) and guided tour app subscriptions (₹300/trip).",
+              "• Runway Months: 6"
+            ]
+          },
           {
             "id": "del-1780686093213-pgt77r",
             "phaseId": "continuous",
@@ -21407,7 +21475,24 @@
             ]
           }
         ],
-        "recommendations": [],
+        "recommendations": [
+          {
+            "id": "rec-1780769863381-0rrp",
+            "phaseKey": "business_model",
+            "label": "Lock Business Model",
+            "description": "Revenue streams, unit economics, value prop, GTM thesis.",
+            "reason": "Locks revenue streams, unit economics, and the path to break-even before we spend on anything cosmetic.",
+            "departments": [
+              "Executive Layer",
+              "Financial Control"
+            ],
+            "isPrimary": true,
+            "revenueImpact": "direct",
+            "blocksLaunch": true,
+            "roi": "high",
+            "isOperational": true
+          }
+        ],
         "activeAgents": [],
         "activeDepartments": [
           "Marketing Department",
@@ -21418,7 +21503,7 @@
           "Executive Layer",
           "Operations Department"
         ],
-        "lastTickAt": 1780738785904,
+        "lastTickAt": 1780769863436,
         "startedAt": 1780685610028,
         "brandDiscovery": {
           "mainBrandValues": "comfort",
@@ -21427,8 +21512,21 @@
           "taglineOrVision": "",
           "submittedAt": 1780686046177
         },
-        "ceoRecommendation": null,
-        "autoRunAll": true,
+        "ceoRecommendation": {
+          "completedSummary": "Process automation audit completed with 4 subtasks processed.. Team & org expansion plan completed with 4 subtasks processed.",
+          "learned": "Key findings from Scaling Operations: Runway Months: 6.",
+          "blocked": "No critical blockers detected.",
+          "nextStep": "Lock Business Model",
+          "reason": "Locks revenue streams, unit economics, and the path to break-even before we spend on anything cosmetic.",
+          "departments": [
+            "Executive Layer",
+            "Financial Control"
+          ],
+          "revenueDriver": "Every dollar of revenue depends on a defined, profitable revenue model. This step decides what the company actually sells and at what margin.",
+          "launchUnblocker": "Until this is done, Launch and validate  in 90 days cannot launch or earn first revenue.",
+          "highestRoi": "High ROI, direct revenue impact — this is the most valuable thing the company can do this week."
+        },
+        "autoRunAll": false,
         "continuousMode": true,
         "continuousRound": 31062,
         "continuousDirectives": [
@@ -21814,7 +21912,35 @@
             "startedAt": 1780686092635,
             "completedAt": 1780686093213
           }
-        ]
+        ],
+        "agentStates": {
+          "Finance Planner Agent": {
+            "agentId": "finance_planner_agent",
+            "name": "Finance Planner Agent",
+            "state": "completed",
+            "currentTaskId": "ext-1780686066786-bfifsp",
+            "currentTaskTitle": "Financial scaling model",
+            "findings": {
+              "revenue_model": "Direct-to-consumer sales of a premium smartwatch rental service for tourists. Revenue streams include daily/weekly rental fees (₹800-1200/day), damage waiver add-ons (₹200/day), and lost/stolen device replacement charges (₹15,000). Ancillary revenue from selling local eSIM data plans (₹500/plan) and guided tour app subscriptions (₹300/trip).",
+              "cost_structure": {
+                "fixed_costs": "₹85,000/month",
+                "variable_costs": "₹350 per rental day",
+                "total_initial_investment": "₹4,50,000"
+              },
+              "unit_economics": {
+                "price_per_unit": "₹1,000",
+                "cost_per_unit": "₹350",
+                "gross_margin": "65%"
+              },
+              "break_even": {
+                "units_per_month": 131,
+                "timeline_months": 3
+              },
+              "runway_months": 6
+            },
+            "completedAt": 1780769863360
+          }
+        }
       },
       "businessProfile": {
         "businessName": "power wash",

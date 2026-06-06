@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import MaterialIcon from './ui/MaterialIcon';
 import { StitchPageHeader } from './stitch/StitchPageHeader';
 import type { BusinessTwin } from '../types';
-import { INTEGRATION_DEFS, INTEGRATION_CATEGORIES } from '../shared/integrations';
+import { INTEGRATION_DEFS, INTEGRATION_CATEGORIES } from '../../shared/integrations';
 
 const CATALOG = INTEGRATION_DEFS;
 
