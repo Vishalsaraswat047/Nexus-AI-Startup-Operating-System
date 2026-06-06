@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | Nexus AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f9f9f9",
+                    "primary-fixed-dim": "#bec6e0",
+                    "tertiary-fixed-dim": "#c5c7c8",
+                    "surface-dim": "#dadada",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-secondary-fixed": "#07006c",
+                    "tertiary": "#000000",
+                    "secondary": "#4648d4",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#565e74",
+                    "surface-container-high": "#e8e8e8",
+                    "on-secondary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "outline-variant": "#c6c6cd",
+                    "surface-container": "#eeeeee",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#2f2ebe",
+                    "primary-fixed": "#dae2fd",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary-fixed": "#131b2e",
+                    "outline": "#76777d",
+                    "surface-container-low": "#f3f3f4",
+                    "secondary-fixed-dim": "#c0c1ff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "on-tertiary-fixed": "#191c1e",
+                    "background": "#f9f9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#e1e2e4",
+                    "primary-container": "#131b2e",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-surface": "#1a1c1c",
+                    "inverse-surface": "#2f3131",
+                    "secondary-container": "#6063ee",
+                    "on-tertiary-container": "#828486",
+                    "on-surface-variant": "#45464d",
+                    "primary": "#000000",
+                    "tertiary-container": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-bright": "#f9f9f9",
+                    "on-primary-container": "#7c839b",
+                    "inverse-primary": "#bec6e0",
+                    "secondary-fixed": "#e1e0ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "gutter": "24px",
+                    "sidebar-width": "220px",
+                    "stack-sm": "8px",
+                    "stack-lg": "32px",
+                    "margin-page": "40px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .form-input-focus:focus {
+            border-color: #4648d4;
+            box-shadow: 0 0 0 2px rgba(70, 72, 212, 0.1);
+            outline: none;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="fixed h-full w-[220px] left-0 top-0 bg-surface-container-lowest dark:bg-tertiary-container border-r border-outline-variant dark:border-outline z-50">
+<div class="flex flex-col gap-2 p-4 h-full">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">smart_toy</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-on-primary">Nexus AI</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Autonomous OS</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Executive Home</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined">track_changes</span>
+<span class="font-label-md text-label-md">Goals</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label-md text-label-md">Projects</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md text-label-md">AI Workforce</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<div class="pt-4 pb-2 px-4">
+<span class="text-[11px] font-bold text-outline uppercase tracking-wider">System</span>
+</div>
+<a class="flex items-center gap-3 bg-surface-container-low dark:bg-primary-container text-primary dark:text-on-primary-container border-l-2 border-secondary font-semibold py-2 px-4 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Admin Center</span>
+</a>
+</nav>
+<button class="mt-auto w-full py-3 px-4 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+                Launch Workflow
+            </button>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 h-16 ml-[220px] px-gutter w-[calc(100%-220px)] bg-surface-container-lowest/70 backdrop-blur-md border-b border-outline-variant flex items-center justify-between z-40">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-body-sm font-body-sm focus:ring-1 focus:ring-secondary transition-all" placeholder="Search parameters, agents, or configurations..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 px-3 py-1 bg-secondary/5 rounded-full border border-secondary/10">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-[11px] font-bold text-secondary uppercase tracking-tighter">Growth Stage: Alpha</span>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-lg transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-lg transition-all">
+<span class="material-symbols-outlined">monitoring</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-3">
+<img alt="Executive Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a senior executive in a modern, brightly lit office environment. The lighting is soft and corporate, emphasizing a clean and authoritative presence. The executive is wearing a dark, well-tailored suit, and the background is a blurred high-end workspace with glass walls and minimalist furniture, reflecting a high-stakes business setting in a light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2RrA5RCCVo2vo0xqj14dzb11um3LAJeXYc_XM2iLCVVNy3FEapha58QksbLv0TuzaQ48tEyGFtQ6cZx8Vsvqkkvk7MFvysjH732KCYuYPD-AupM1Ka6EzIvaYM78CzeFgfBBV3BN19jlO96H5VqpkxR8vrtLRqtstN97rALKYBWcdJ-kUn9BuiXTsgeqTg5LZ7oZd1YXxXkdtS-ea1eP5HkpDxIOnSBKzn2jub-qMHU7pXebHyXl5z4T8SlXgvR-6d8RbpaV1yV0"/>
+<span class="font-label-md text-label-md hidden lg:block">Alexander Voss</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-16 ml-[220px] min-h-screen">
+<div class="max-w-screen-xl mx-auto p-gutter lg:p-margin-page">
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">System Configuration</h2>
+<p class="text-body-md text-on-surface-variant">Manage your autonomous engine, agent permissions, and long-term memory structures.</p>
+</div>
+<!-- Settings Layout: Horizontal Tabs for Desktop, Vertical for content logic -->
+<div class="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-stack-lg items-start">
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1 sticky top-24">
+<button class="settings-tab flex items-center gap-3 px-4 py-3 rounded-lg text-primary font-semibold bg-white border border-outline-variant shadow-sm transition-all text-label-md" id="tab-general" onclick="switchTab('general')">
+<span class="material-symbols-outlined">tune</span>
+                        General
+                    </button>
+<button class="settings-tab flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all text-label-md" id="tab-models" onclick="switchTab('models')">
+<span class="material-symbols-outlined">model_training</span>
+                        Models
+                    </button>
+<button class="settings-tab flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all text-label-md" id="tab-agents" onclick="switchTab('agents')">
+<span class="material-symbols-outlined">support_agent</span>
+                        Agents
+                    </button>
+<button class="settings-tab flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all text-label-md" id="tab-memory" onclick="switchTab('memory')">
+<span class="material-symbols-outlined">database</span>
+                        Memory &amp; Context
+                    </button>
+<button class="settings-tab flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all text-label-md" id="tab-notifications" onclick="switchTab('notifications')">
+<span class="material-symbols-outlined">notifications_active</span>
+                        Notifications
+                    </button>
+</nav>
+<!-- Configuration Panels -->
+<div class="space-y-stack-lg" id="settings-canvas">
+<!-- General Settings Section -->
+<section class="settings-panel block" id="panel-general">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-lg">
+<h3 class="font-headline-md text-headline-md mb-6">General Preferences</h3>
+<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-label-md text-primary block">Organization Name</label>
+<input class="w-full px-4 py-2 border border-outline-variant rounded-lg font-body-sm text-body-sm form-input-focus" type="text" value="Nexus Global Holdings"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-md text-primary block">Primary Timezone</label>
+<select class="w-full px-4 py-2 border border-outline-variant rounded-lg font-body-sm text-body-sm form-input-focus">
+<option>UTC (Global Standard)</option>
+<option>PST (Pacific Standard)</option>
+<option>EST (Eastern Standard)</option>
+</select>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-6">
+<label class="text-label-md text-primary block mb-4">Autonomy Governance Level</label>
+<div class="grid grid-cols-3 gap-4">
+<label class="relative flex flex-col items-center justify-center p-4 border-2 border-outline-variant rounded-xl cursor-pointer hover:border-secondary transition-all group">
+<input class="sr-only" name="governance" type="radio"/>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary mb-2">person</span>
+<span class="font-bold text-label-sm">Supervised</span>
+<span class="text-[10px] text-center text-on-surface-variant mt-1">Manual Approval Required</span>
+</label>
+<label class="relative flex flex-col items-center justify-center p-4 border-2 border-secondary bg-secondary/5 rounded-xl cursor-pointer shadow-sm">
+<input checked="" class="sr-only" name="governance" type="radio"/>
+<span class="material-symbols-outlined text-secondary mb-2">auto_awesome</span>
+<span class="font-bold text-label-sm text-secondary">Balanced</span>
+<span class="text-[10px] text-center text-on-surface-variant mt-1">Standard Safeguards</span>
+</label>
+<label class="relative flex flex-col items-center justify-center p-4 border-2 border-outline-variant rounded-xl cursor-pointer hover:border-secondary transition-all group">
+<input class="sr-only" name="governance" type="radio"/>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary mb-2">rocket_launch</span>
+<span class="font-bold text-label-sm">Autonomous</span>
+<span class="text-[10px] text-center text-on-surface-variant mt-1">High Velocity Mode</span>
+</label>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-3 mt-8 pt-6 border-t border-outline-variant">
+<button class="px-6 py-2 rounded-lg border border-outline-variant text-primary font-label-md text-label-md hover:bg-surface-container transition-all">Discard Changes</button>
+<button class="px-6 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:opacity-90 transition-all shadow-md">Save Configuration</button>
+</div>
+</div>
+</section>
+<!-- Models Section (Hidden by default) -->
+<section class="settings-panel hidden" id="panel-models">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-lg">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md">Inference Models</h3>
+<button class="px-4 py-2 bg-secondary text-on-primary rounded-lg font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                    Connect Model
+                                </button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-xl bg-surface">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">token</span>
+</div>
+<div>
+<h4 class="font-bold text-body-md">Nexus-Primary (Omni-4)</h4>
+<p class="text-body-sm text-on-surface-variant">Default reasoning engine • High Performance</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<p class="text-label-sm text-outline">Latencies</p>
+<p class="font-bold text-body-sm text-secondary">240ms</p>
+</div>
+<span class="px-2 py-1 bg-green-100 text-green-700 text-[10px] font-bold uppercase rounded">Active</span>
+<button class="material-symbols-outlined text-outline">more_vert</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">psychology</span>
+</div>
+<div>
+<h4 class="font-bold text-body-md">Quant-Logic 70B</h4>
+<p class="text-body-sm text-on-surface-variant">Specialized for financial calculations</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<p class="text-label-sm text-outline">Latencies</p>
+<p class="font-bold text-body-sm">480ms</p>
+</div>
+<span class="px-2 py-1 bg-surface-container-high text-outline text-[10px] font-bold uppercase rounded">Standby</span>
+<button class="material-symbols-outlined text-outline">more_vert</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Agents Section (Hidden by default) -->
+<section class="settings-panel hidden" id="panel-agents">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary text-4xl">robot_2</span>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-label-sm text-on-surface-variant">Idle</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Strategic Analyst</h4>
+<p class="text-body-sm text-on-surface-variant mb-6">Processes market data and generates quarterly projections automatically.</p>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant">
+<span class="text-label-sm font-bold text-primary">8 Permissions Active</span>
+<button class="text-secondary font-label-md text-label-md">Edit Role</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-outline text-4xl">hail</span>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-label-sm text-on-surface-variant">Offline</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Comms Officer</h4>
+<p class="text-body-sm text-on-surface-variant mb-6">Drafts internal announcements and manages the corporate newsfeed.</p>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant">
+<span class="text-label-sm font-bold text-primary">3 Permissions Active</span>
+<button class="text-secondary font-label-md text-label-md">Edit Role</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Notifications Section (Hidden by default) -->
+<section class="settings-panel hidden" id="panel-notifications">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-lg">
+<h3 class="font-headline-md text-headline-md mb-6">Notification Matrix</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between py-3 border-b border-outline-variant">
+<div>
+<h5 class="font-bold text-body-md">Executive Summaries</h5>
+<p class="text-body-sm text-on-surface-variant">Receive daily digests of AI-driven workforce output.</p>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</div>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-outline-variant">
+<div>
+<h5 class="font-bold text-body-md">Model Drift Alerts</h5>
+<p class="text-body-sm text-on-surface-variant">Instant notification if agent logic deviates from core goals.</p>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</div>
+</div>
+<div class="flex items-center justify-between py-3">
+<div>
+<h5 class="font-bold text-body-md">Critical Success Indicators</h5>
+<p class="text-body-sm text-on-surface-variant">Flash notifications for goal achievement milestones.</p>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Bento Info Support -->
+<div class="mt-stack-lg grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<div class="bg-primary p-6 rounded-2xl text-on-primary">
+<span class="material-symbols-outlined mb-4" style="font-variation-settings: 'FILL' 1;">security</span>
+<h5 class="font-bold text-label-md mb-2">Encrypted Vault</h5>
+<p class="text-body-sm opacity-80">All API keys and agent configurations are protected by hardware-level encryption.</p>
+</div>
+<div class="bg-secondary-container p-6 rounded-2xl text-on-secondary-container">
+<span class="material-symbols-outlined mb-4">memory</span>
+<h5 class="font-bold text-label-md mb-2">Contextual Window</h5>
+<p class="text-body-sm opacity-80">System-wide memory is currently operating at 1.2M tokens across all active nodes.</p>
+</div>
+<div class="border-2 border-dashed border-outline-variant p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-outline mb-2">extension</span>
+<p class="text-label-sm font-bold text-outline">Awaiting Configuration</p>
+<p class="text-[10px] text-outline px-4">Integrate external vector databases to extend Nexus memory capabilities.</p>
+</div>
+</div>
+</div>
+</main>
+<script>
+        function switchTab(tabId) {
+            // Update Tab Styling
+            const tabs = document.querySelectorAll('.settings-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-white', 'border', 'border-outline-variant', 'shadow-sm', 'text-primary', 'font-semibold');
+                tab.classList.add('text-on-surface-variant', 'hover:bg-surface-container-low');
+            });
+
+            const activeTab = document.getElementById(`tab-${tabId}`);
+            activeTab.classList.add('bg-white', 'border', 'border-outline-variant', 'shadow-sm', 'text-primary', 'font-semibold');
+            activeTab.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-low');
+
+            // Show Panel
+            const panels = document.querySelectorAll('.settings-panel');
+            panels.forEach(panel => panel.classList.add('hidden'));
+            
+            const activePanel = document.getElementById(`panel-${tabId}`);
+            if(activePanel) {
+                activePanel.classList.remove('hidden');
+                activePanel.classList.add('block');
+            } else {
+                // Fallback for missing panels (like Memory) - showing empty state
+                const canvas = document.getElementById('settings-canvas');
+                // Could dynamically inject content here if needed
+            }
+        }
+    </script>
+</body></html>

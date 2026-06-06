@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Knowledge Base | Nexus AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .notion-link-hover:hover {
+            background-color: rgba(15, 23, 42, 0.05);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#f9f9f9",
+                      "primary-fixed-dim": "#bec6e0",
+                      "tertiary-fixed-dim": "#c5c7c8",
+                      "surface-dim": "#dadada",
+                      "inverse-on-surface": "#f0f1f1",
+                      "on-secondary-fixed": "#07006c",
+                      "tertiary": "#000000",
+                      "secondary": "#4648d4",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "surface-tint": "#565e74",
+                      "surface-container-high": "#e8e8e8",
+                      "on-secondary-container": "#fffbff",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#1a1c1c",
+                      "outline-variant": "#c6c6cd",
+                      "surface-container": "#eeeeee",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#2f2ebe",
+                      "primary-fixed": "#dae2fd",
+                      "surface-variant": "#e2e2e2",
+                      "on-primary-fixed": "#131b2e",
+                      "outline": "#76777d",
+                      "surface-container-low": "#f3f3f4",
+                      "secondary-fixed-dim": "#c0c1ff",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#444749",
+                      "on-tertiary-fixed": "#191c1e",
+                      "background": "#f9f9f9",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed": "#e1e2e4",
+                      "primary-container": "#131b2e",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "on-surface": "#1a1c1c",
+                      "inverse-surface": "#2f3131",
+                      "secondary-container": "#6063ee",
+                      "on-tertiary-container": "#828486",
+                      "on-surface-variant": "#45464d",
+                      "primary": "#000000",
+                      "tertiary-container": "#191c1e",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e2e2e2",
+                      "surface-bright": "#f9f9f9",
+                      "on-primary-container": "#7c839b",
+                      "inverse-primary": "#bec6e0",
+                      "secondary-fixed": "#e1e0ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "gutter": "24px",
+                      "sidebar-width": "220px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "margin-page": "40px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed h-full w-[220px] left-0 top-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col gap-2 p-4 z-50">
+<div class="mb-6 px-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Nexus AI</h1>
+<p class="font-label-md text-label-md text-on-primary-container">Autonomous OS</p>
+</div>
+<nav class="flex-1 overflow-y-auto space-y-1">
+<!-- Executive Home -->
+<a class="flex items-center gap-3 text-on-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-label-md text-label-md">Executive Home</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">track_changes</span>
+<span class="font-label-md text-label-md">Goals</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+<span class="font-label-md text-label-md">Projects</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span class="font-label-md text-label-md">Timeline</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">corporate_fare</span>
+<span class="font-label-md text-label-md">Departments</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="font-label-md text-label-md">AI Workforce</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<!-- Active: Knowledge Base -->
+<a class="flex items-center gap-3 bg-surface-container-low text-primary border-l-2 border-secondary font-semibold py-2 px-4" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="font-label-md text-label-md">Knowledge Base</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">query_stats</span>
+<span class="font-label-md text-label-md">Market &amp; Research</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 text-on-surface-variant py-2 px-4 hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<button class="mt-4 w-full bg-primary text-on-primary py-2 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
+                Launch Workflow
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-[220px] right-0 h-16 bg-surface-container-lowest/70 backdrop-blur-md border-b border-outline-variant flex items-center justify-between px-gutter z-40">
+<div class="flex items-center gap-4 w-1/3">
+<div class="relative w-full max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg py-1.5 pl-10 pr-4 text-body-sm font-body-sm focus:ring-1 focus:ring-secondary" placeholder="Search Knowledge Base..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-on-surface-variant font-label-md text-label-md">Growth Stage: Alpha</span>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container rounded-lg transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container rounded-lg transition-all">
+<span class="material-symbols-outlined">monitoring</span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Executive Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT_tYA8jQWOZpAa2xOpeAuaHoQOKT3NhRzeiigEJXV_Zeb-j-NVBt8sWNvHh-T7uuqA8g56p5JjdXeVOkZKYCL_I3JN1kOWmj-64W5HSk-6omY_f6Bd2rXZ3Of9dOyXTM0slLDFx2YcMyxJ6dthnBvHNoeBPF8o42IBOBBc2Ay34lL0BB7g5Vz2Oh_kpoRgAStNYnOfTDEuvrYk75X6YDC1ulSnup8XAx_14bA2o032jxjC43aoCJDY2ZDtN5sYYvtv5z1uR7aOWY"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[220px] pt-16 min-h-screen bg-surface-container-lowest">
+<div class="max-w-[900px] mx-auto py-margin-page px-gutter">
+<!-- Page Header (Notion Style) -->
+<div class="mb-stack-lg animate-in fade-in duration-700 slide-in-from-bottom-4">
+<div class="flex items-center gap-4 mb-stack-md text-primary/40">
+<span class="material-symbols-outlined text-[48px]">auto_stories</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-2">Knowledge Base</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    The central nervous system of Nexus AI. Access historical context, strategic directives, and competitive intelligence maintained by the autonomous core.
+                </p>
+</div>
+<div class="h-[1px] w-full bg-outline-variant/30 mb-stack-lg"></div>
+<!-- Bento Content Grid -->
+<div class="space-y-stack-lg">
+<!-- Business Memory Section -->
+<section>
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="material-symbols-outlined text-secondary">memory</span>
+<h3 class="font-headline-md text-headline-md">Business Memory</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="p-6 border border-outline-variant rounded-xl hover:shadow-lg hover:shadow-black/5 transition-all group cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary group-hover:text-secondary transition-colors">history_edu</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 bg-surface-container-high rounded">Stable</span>
+</div>
+<h4 class="font-label-md text-label-md mb-2">Founding Mission &amp; V1.0</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The original architecture and core principles established during the Genesis sprint.</p>
+</div>
+<div class="p-6 border border-outline-variant rounded-xl hover:shadow-lg hover:shadow-black/5 transition-all group cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary group-hover:text-secondary transition-colors">hub</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 bg-secondary/10 text-secondary rounded">Updating</span>
+</div>
+<h4 class="font-label-md text-label-md mb-2">Operating Protocols</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Standard operating procedures for cross-departmental AI synchronization.</p>
+</div>
+</div>
+</section>
+<!-- Strategic Decisions (Table View) -->
+<section class="py-stack-lg">
+<div class="flex items-center justify-between mb-stack-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">gavel</span>
+<h3 class="font-headline-md text-headline-md">Key Decisions</h3>
+</div>
+<button class="text-label-md font-label-md text-secondary flex items-center gap-1 hover:underline">
+                            View Full Archive <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-6 py-3 font-label-md text-label-md text-on-surface-variant">Decision</th>
+<th class="px-6 py-3 font-label-md text-label-md text-on-surface-variant">Stakeholder</th>
+<th class="px-6 py-3 font-label-md text-label-md text-on-surface-variant">Impact</th>
+<th class="px-6 py-3 font-label-md text-label-md text-on-surface-variant">Date</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="hover:bg-surface-container-low/50 cursor-pointer">
+<td class="px-6 py-4 font-body-sm text-body-sm font-medium">Pivot to Autonomous First</td>
+<td class="px-6 py-4 font-body-sm text-body-sm">Nexus Core</td>
+<td class="px-6 py-4"><span class="px-2 py-1 bg-error-container text-on-error-container text-[10px] font-bold rounded uppercase">High</span></td>
+<td class="px-6 py-4 font-body-sm text-body-sm text-on-surface-variant">Oct 24, 2023</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 cursor-pointer">
+<td class="px-6 py-4 font-body-sm text-body-sm font-medium">Cloud Infrastructure Scale</td>
+<td class="px-6 py-4 font-body-sm text-body-sm">DevOps Unit</td>
+<td class="px-6 py-4"><span class="px-2 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold rounded uppercase">Mid</span></td>
+<td class="px-6 py-4 font-body-sm text-body-sm text-on-surface-variant">Nov 12, 2023</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 cursor-pointer">
+<td class="px-6 py-4 font-body-sm text-body-sm font-medium">Regional Expansion (EMEA)</td>
+<td class="px-6 py-4 font-body-sm text-body-sm">Growth Ops</td>
+<td class="px-6 py-4"><span class="px-2 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold rounded uppercase">Mid</span></td>
+<td class="px-6 py-4 font-body-sm text-body-sm text-on-surface-variant">Jan 05, 2024</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Competitors & Market (Rich Cards) -->
+<section>
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="material-symbols-outlined text-secondary">radar</span>
+<h3 class="font-headline-md text-headline-md">Competitive Intelligence</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<!-- Competitor 1 -->
+<div class="bg-white border border-outline-variant rounded-2xl overflow-hidden hover:border-secondary/30 transition-all">
+<div class="h-32 bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500" data-alt="A sophisticated data visualization dashboard showing market trends and competitor growth curves. The UI is dark and technical with glowing blue lines against a deep charcoal background, conveying a high-tech intelligence and monitoring mood. The aesthetic is clean, professional, and data-dense." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA16FKE1S19t1t90r-Kw_nte_PlHFUhjp5jppImYP2UR2XlOrpB5-MO7-ufATFXwGXg_eXsVisR4Rv8uR-FO3kcvMAjXn_Ntl2z9PiFOGrP0I3Z1E1_h9jWbPg3e7tTgZAfIZUHYk1xoNKtmGAe6P67b9y2_waA6TqtgsqUeoCwGYuTsNOcQ1LAale5Zeo7ObFlM57SwuSgOoaQmWG4DRP3uCWXYF3wwVkVGLIf1mIjvmd-sVmErBgvaaZaEwI2z3sBbRAeIWJc26s"/>
+</div>
+<div class="p-5">
+<h5 class="font-label-md text-label-md mb-1">Sentience Systems</h5>
+<p class="text-label-sm font-label-sm text-secondary mb-3">Tier 1 Threat</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Direct competitor in autonomous OS space. Recent Series C funding at $2.1B valuation.</p>
+</div>
+</div>
+<!-- Competitor 2 -->
+<div class="bg-white border border-outline-variant rounded-2xl overflow-hidden hover:border-secondary/30 transition-all">
+<div class="h-32 bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500" data-alt="A macro photograph of an integrated circuit or motherboard with glowing pathways, representing cutting-edge hardware competition. The lighting is dramatic, with cool white and indigo highlights reflecting off metallic surfaces. The style is industrial and luxurious, highlighting precision engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLUYoU4puEe45JFg2wQEtyKdD_ZWsOhr0P3XyQX9gQ3nGJxaIvQTMEIC1fZjKU8V7k71zMkmp_CKR8v3b0rQ-TK7ycvjfNyFzHYV76lzorGpPyVjZvgEIwW0T8g18cBPcOYTEkr2XouBUIey8Cb5QgvmEA1O1q70OLctpxDJTnaRjLpZZJy5Jy3tV2KMnUpEedxn40PpPid_wwQ76UTC8cqVQbwMALWvng1wfaktq1Zp73E_qxBlNMADkjHUMcVxzp04sCoQDvKaM"/>
+</div>
+<div class="p-5">
+<h5 class="font-label-md text-label-md mb-1">Origin Logic</h5>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-3">Tier 2 Neutral</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Legacy player pivoting to edge-based AI. Strong hardware integration but slow software cycles.</p>
+</div>
+</div>
+<!-- Add Placeholder -->
+<div class="border-2 border-dashed border-outline-variant rounded-2xl flex flex-col items-center justify-center p-6 text-center group cursor-pointer hover:border-secondary/50 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary mb-2">add_circle</span>
+<p class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary">Track Competitor</p>
+<p class="text-[11px] text-on-surface-variant/60 mt-1">Add entity for AI tracking</p>
+</div>
+</div>
+</section>
+<!-- Investor Relations (Minimal Documentation) -->
+<section class="py-stack-lg">
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="material-symbols-outlined text-secondary">payments</span>
+<h3 class="font-headline-md text-headline-md">Investor Portal</h3>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-4 p-4 rounded-lg notion-link-hover cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">description</span>
+<div class="flex-1">
+<h5 class="font-label-md text-label-md">Q3 Investor Update - Final.pdf</h5>
+<p class="text-label-sm font-label-sm text-on-surface-variant/60">Updated 4h ago • 12.4 MB</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100">download</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-lg notion-link-hover cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">table_chart</span>
+<div class="flex-1">
+<h5 class="font-label-md text-label-md">Cap Table - Alpha Series</h5>
+<p class="text-label-sm font-label-sm text-on-surface-variant/60">Updated 2 days ago • Live Sheet</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">open_in_new</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-lg notion-link-hover cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">mail</span>
+<div class="flex-1">
+<h5 class="font-label-md text-label-md">Investor Communication Log</h5>
+<p class="text-label-sm font-label-sm text-on-surface-variant/60">Automated archive of all official outreach</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- Awaiting Configuration State Example -->
+<section class="mt-stack-lg pt-stack-lg border-t border-outline-variant/20">
+<div class="w-full border-2 border-dashed border-outline-variant rounded-2xl p-12 text-center">
+<span class="material-symbols-outlined text-[48px] text-on-surface-variant/40 mb-4">analytics</span>
+<h4 class="font-headline-md text-headline-md text-on-surface-variant mb-2">Predictive Market Scenarios</h4>
+<p class="font-body-md text-body-md text-on-surface-variant/60 mb-6">Simulation engine is currently processing real-time market shifts.</p>
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full">
+<div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Awaiting Configuration</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Meta -->
+<footer class="mt-stack-lg pt-stack-lg border-t border-outline-variant flex justify-between text-label-sm font-label-sm text-on-surface-variant/50">
+<p>© 2024 Nexus AI • Last synced 2m ago</p>
+<div class="flex gap-4">
+<a class="hover:text-primary" href="#">System Health</a>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+</div>
+</footer>
+</div>
+</main>
+<!-- Micro-interactions Script -->
+<script>
+        document.querySelectorAll('.cursor-pointer').forEach(item => {
+            item.addEventListener('mousedown', () => {
+                item.style.transform = 'scale(0.98)';
+            });
+            item.addEventListener('mouseup', () => {
+                item.style.transform = 'scale(1)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

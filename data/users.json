@@ -1,0 +1,125 @@
+{
+  "users": [
+    {
+      "id": "usr-1780640140276-0a93b42a",
+      "email": "newuser@test.com",
+      "founderName": "New User",
+      "passwordHash": "de8cebe5eddd30279f4ed87850bae7d5:6b1e28c133bd4b7ae582119e0e3827a4ff88db63be2d3e3c35da1430963cad41136c508fc5fce3db2dcfa61bb7f37e076bba7881ef9c2d64662fb9a0ebc60c18",
+      "authProvider": "email",
+      "createdAt": 1780640140317,
+      "lastLoginAt": 1780640140317
+    },
+    {
+      "id": "usr-1780641737172-3114e37e",
+      "email": "vishalsaraswat047@gmail.com",
+      "founderName": "Vishal Saraswat",
+      "passwordHash": "ad98d75bc2dd10f2c8c6bb36e41fc34e:f28d20b520c949de2bbe026854303327b3d59fae25d3cabddd9f13b4c9187dd4b5f54ceda1421a0ab06bbeaf11db8ba3100430d53f0a0db2bc2204733224136b",
+      "authProvider": "email",
+      "createdAt": 1780641737287,
+      "lastLoginAt": 1780735464220,
+      "businessType": "new_brand",
+      "onboardingCompleted": true,
+      "businessProfile": {
+        "businessName": "power wash",
+        "businessType": "new_brand",
+        "category": "Other",
+        "stage": "Idea",
+        "description": "",
+        "problem": "wasing cars at doorstep\n",
+        "solution": "",
+        "targetCustomer": "tier 1 and tier 2 citys ",
+        "uniqueAdvantage": "",
+        "vision": "to expend it or make a tie with the socitys thye have large number so customers",
+        "country": "India",
+        "website": "",
+        "industry": "car_wash",
+        "budget": 5000,
+        "timelineDays": 10,
+        "teamType": "Solo",
+        "teamSize": 1,
+        "revenueRange": "",
+        "mainProducts": "",
+        "mainServices": "",
+        "currentGoals": "",
+        "currentProblems": "",
+        "stageAnswers": {
+          "businessIdea": "power wash is a mobile car care and doorstep vehicle washing company focused on providing hassle-free car cleaning services. Customers can book a wash at their preferred location and time, and trained service professionals arrive with the necessary equipment and cleaning materials. The business aims to save customers time while ensuring their vehicles remain clean, well-maintained, and presentable. Prime Drive offers services such as exterior washing, interior cleaning, detailing, polishing, and subscription-based maintenance plans for regular vehicle care.",
+          "market": "service",
+          "currentResources": "savings "
+        },
+        "contexts": {
+          "businessProfile": "power wash is a Other business at the Idea stage. . Target: tier 1 and tier 2 citys . Market: India.",
+          "marketProfile": "Category: Other. Competitors: To be researched. Stage focus: Idea-appropriate validation and demand signals.",
+          "goalProfile": "to expend it or make a tie with the socitys thye have large number so customers",
+          "resourceProfile": "Budget: $5000. Team: Solo. Timeline: 10 days.",
+          "riskProfile": "Unvalidated market assumption.",
+          "growthProfile": "Primary growth lever for Other at Idea: Problem-solution fit and demand validation",
+          "departmentRequirements": [
+            "Executive Layer",
+            "Research Division",
+            "Autonomous Control Unit",
+            "Financial Control",
+            "Growth & Marketing"
+          ],
+          "executionRoadmap": [
+            "Market Research",
+            "Brand Strategy",
+            "Website",
+            "Marketing",
+            "Operations"
+          ],
+          "highestPriorityAction": "Start Market Research"
+        },
+        "onboardingCompletedAt": 1780738126809
+      },
+      "businessProfileCompanyId": "co-user-usr-1780641737172-3114e37e"
+    },
+    {
+      "id": "usr-1780649785522-d0f8cd0c",
+      "email": "vaibhavsaraswat047@gmail.com",
+      "founderName": "Vaibhav",
+      "passwordHash": "08d9c39d4520fdb2dc59d30591848068:3e0d28d419e49ada9a41bc283526fd35950ebfeed36f956b631f5290a4d2ff51020a3eb3430b321a6226a5c6d6d1e1fc80919a04adf0c7a49f3e5ba98be3ccc3",
+      "authProvider": "email",
+      "createdAt": 1780649785616,
+      "lastLoginAt": 1780678625081,
+      "businessType": "new_brand"
+    }
+  ],
+  "sessions": [
+    {
+      "token": "f37dabb55ad92f337a87a338b68365822fc1a0f7599e4c111640272e453bca23",
+      "userId": "usr-1780640140276-0a93b42a",
+      "email": "newuser@test.com",
+      "createdAt": 1780640140318,
+      "expiresAt": 1783232140318
+    },
+    {
+      "token": "0d018e162a7b8ca4467391fa5492dc734ebd35a3ebcf5cb6c2dc4480710ec687",
+      "userId": "usr-1780641737172-3114e37e",
+      "email": "vishalsaraswat047@gmail.com",
+      "createdAt": 1780641737287,
+      "expiresAt": 1783233737287
+    },
+    {
+      "token": "aec824f64d872e1a9efaa232541a685404f01631ec60b660882639584ec2133b",
+      "userId": "usr-1780649785522-d0f8cd0c",
+      "email": "vaibhavsaraswat047@gmail.com",
+      "createdAt": 1780649785616,
+      "expiresAt": 1783241785616
+    },
+    {
+      "token": "0ccb214968404161145a30a444e9e8beb01e8be95c8a8ad7e81ebed5d825a53c",
+      "userId": "usr-1780649785522-d0f8cd0c",
+      "email": "vaibhavsaraswat047@gmail.com",
+      "createdAt": 1780678625082,
+      "expiresAt": 1783270625082
+    },
+    {
+      "token": "5273073378c45662bf2d91388604ca412c1ecd778ff45eab802c588b842b93b4",
+      "userId": "usr-1780641737172-3114e37e",
+      "email": "vishalsaraswat047@gmail.com",
+      "createdAt": 1780735464227,
+      "expiresAt": 1783327464227
+    }
+  ]
+}

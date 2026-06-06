@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | Nexus AI Autonomous OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f9f9f9",
+                    "primary-fixed-dim": "#bec6e0",
+                    "tertiary-fixed-dim": "#c5c7c8",
+                    "surface-dim": "#dadada",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-secondary-fixed": "#07006c",
+                    "tertiary": "#000000",
+                    "secondary": "#4648d4",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#565e74",
+                    "surface-container-high": "#e8e8e8",
+                    "on-secondary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "outline-variant": "#c6c6cd",
+                    "surface-container": "#eeeeee",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#2f2ebe",
+                    "primary-fixed": "#dae2fd",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary-fixed": "#131b2e",
+                    "outline": "#76777d",
+                    "surface-container-low": "#f3f3f4",
+                    "secondary-fixed-dim": "#c0c1ff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "on-tertiary-fixed": "#191c1e",
+                    "background": "#f9f9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#e1e2e4",
+                    "primary-container": "#131b2e",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-surface": "#1a1c1c",
+                    "inverse-surface": "#2f3131",
+                    "secondary-container": "#6063ee",
+                    "on-tertiary-container": "#828486",
+                    "on-surface-variant": "#45464d",
+                    "primary": "#000000",
+                    "tertiary-container": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-bright": "#f9f9f9",
+                    "on-primary-container": "#7c839b",
+                    "inverse-primary": "#bec6e0",
+                    "secondary-fixed": "#e1e0ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "gutter": "24px",
+                    "sidebar-width": "220px",
+                    "stack-sm": "8px",
+                    "stack-lg": "32px",
+                    "margin-page": "40px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Inter', sans-serif;
+        }
+        .tonal-layer {
+            background: radial-gradient(circle at 50% -20%, #f1f5f9 0%, #f9f9f9 100%);
+        }
+        .premium-shadow {
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.03), 0px 10px 30px rgba(0,0,0,0.02);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center tonal-layer overflow-hidden">
+<!-- Decorative Atmosphere -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden opacity-40">
+<div class="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-secondary/5 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[0%] right-[5%] w-[30%] h-[50%] bg-primary-fixed-dim/10 blur-[100px] rounded-full"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 w-full max-w-[440px] px-gutter">
+<!-- Brand Header Section -->
+<div class="flex flex-col items-center mb-stack-lg text-center">
+<div class="mb-stack-md">
+<!-- Nexus AI Logo Placeholder -->
+<div class="w-16 h-16 bg-primary flex items-center justify-center rounded-xl premium-shadow">
+<span class="material-symbols-outlined text-on-primary text-[32px]" data-icon="smart_toy">smart_toy</span>
+</div>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Nexus AI</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Autonomous Operating System for Executives</p>
+</div>
+<!-- Login Card -->
+<section class="bg-surface-container-lowest border border-outline-variant p-stack-lg rounded-xl premium-shadow">
+<header class="mb-stack-lg">
+<h2 class="font-headline-lg text-[24px] text-primary mb-2">Welcome Back</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Access your secure autonomous workspace.</p>
+</header>
+<form action="#" class="space-y-stack-md" id="login-form" method="POST">
+<!-- Email Field -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface" for="email">Work Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="mail">mail</span>
+<input class="w-full h-[48px] pl-11 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-primary focus:outline-none focus:ring-1 focus:ring-secondary focus:border-secondary transition-all placeholder:text-outline" id="email" name="email" placeholder="name@company.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-secondary hover:underline" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="lock">lock</span>
+<input class="w-full h-[48px] pl-11 pr-12 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-primary focus:outline-none focus:ring-1 focus:ring-secondary focus:border-secondary transition-all placeholder:text-outline" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me Toggle -->
+<div class="flex items-center gap-2 pt-2">
+<input class="w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary" id="remember" name="remember" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="remember">Remember this session for 30 days</label>
+</div>
+<!-- CTA Button -->
+<div class="pt-4">
+<button class="w-full h-[48px] bg-primary text-on-primary font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 hover:bg-on-surface transition-all active:scale-[0.98] duration-150 shadow-sm" type="submit">
+                        Sign in to Nexus AI
+                        <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+<footer class="mt-stack-lg pt-stack-md border-t border-outline-variant/50">
+<div class="flex flex-col gap-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center">Or continue with SSO</p>
+<div class="grid grid-cols-2 gap-3">
+<button class="h-[44px] border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByc0KkkBamm3-V5kFosPAxg6uurKhUMUxF5oqZ1FBu-mjGNVD4_0zGQVYP2WUTIRXKDH5GTDbclprYY6Fliy22UtXKg_fjyO85rvvMgTTF2aMVKjZ_lrpWkhkmJgEMTGKyEQlIozAJ-2Q-zookccs25HG7dp2EZeSP5YSU4s1Ypr26X4J-aME-3tVXMlD5Ag6RzEKyDF-8twUzTYmnQUEcIuNd-AeV0Er0SH6Qjx0fVDAFSc_f3_1TJCraTZg_npfvMGWI-JgZ1wc"/>
+                            Google
+                        </button>
+<button class="h-[44px] border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="grid_view">grid_view</span>
+                            Microsoft
+                        </button>
+</div>
+</div>
+</footer>
+</section>
+<!-- Footer Links -->
+<footer class="mt-stack-lg flex justify-center gap-stack-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<span class="text-outline-variant text-[12px]">•</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Security Standards</a>
+<span class="text-outline-variant text-[12px]">•</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a>
+</footer>
+</main>
+<!-- Side Imagery (Optional/Aesthetic) -->
+<div class="hidden lg:block absolute right-0 top-0 bottom-0 w-[35%] overflow-hidden border-l border-outline-variant bg-surface-container-low">
+<div class="absolute inset-0 opacity-20 mix-blend-overlay">
+<img class="w-full h-full object-cover" data-alt="A sophisticated macro photograph of high-end server hardware with glowing blue and white fiber optic cables. The scene is illuminated by crisp, clinical light-mode studio lighting that emphasizes the metallic textures and technological precision. The aesthetic is clean, professional, and corporate, representing advanced autonomous computing infrastructure with a palette of silver, deep navy, and soft grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDThNJDg1fGS5B6ujzNlnJB-grIjow4Ny3clHCjJt6OOP6Emzgl2haeKXfwbv7QHowmisc4kX_qXz1DGDXJuaPJecr9MqwOPqI6pufTKDyrEWgPcoekuI3wOt5725aQFuAQp4QBnjwEATPaCvG8JSRSbtZwv2N6_ALS8VZ7cStOzrseKPqha0Rbnv5TvVRpeZ1_VgoBS1c5rHInOBh6MUMXycX9B4RFwXUfQlGUxLxlEYBhjYN8HjYsUhqwGuGP2L-vKMcyT3B20fM"/>
+</div>
+<div class="relative h-full flex flex-col justify-end p-margin-page bg-gradient-to-t from-surface via-transparent to-transparent">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md p-stack-lg rounded-xl border border-outline-variant premium-shadow max-w-[320px]">
+<span class="material-symbols-outlined text-secondary text-[28px] mb-2" data-icon="security" data-weight="fill" style="font-variation-settings: 'FILL' 1;">security</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Executive Trust</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nexus AI leverages end-to-end encryption and decentralized data models to ensure your autonomous workflows remain strictly confidential.</p>
+</div>
+</div>
+</div>
+<script>
+        // Micro-interactions for form focus and submission
+        const form = document.getElementById('login-form');
+        const inputs = form.querySelectorAll('input');
+
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            btn.innerHTML = `<span class="animate-spin material-symbols-outlined" data-icon="progress_activity">progress_activity</span> Authenticating...`;
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            
+            // Simulating transition to dashboard
+            setTimeout(() => {
+                console.log('Login Successful');
+                // Normally: window.location.href = '/dashboard';
+            }, 1500);
+        });
+    </script>
+</body></html>

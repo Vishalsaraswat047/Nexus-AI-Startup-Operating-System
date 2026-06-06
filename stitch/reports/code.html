@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reports | Nexus AI</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#f9f9f9",
+                      "primary-fixed-dim": "#bec6e0",
+                      "tertiary-fixed-dim": "#c5c7c8",
+                      "surface-dim": "#dadada",
+                      "inverse-on-surface": "#f0f1f1",
+                      "on-secondary-fixed": "#07006c",
+                      "tertiary": "#000000",
+                      "secondary": "#4648d4",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "surface-tint": "#565e74",
+                      "surface-container-high": "#e8e8e8",
+                      "on-secondary-container": "#fffbff",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#1a1c1c",
+                      "outline-variant": "#c6c6cd",
+                      "surface-container": "#eeeeee",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#2f2ebe",
+                      "primary-fixed": "#dae2fd",
+                      "surface-variant": "#e2e2e2",
+                      "on-primary-fixed": "#131b2e",
+                      "outline": "#76777d",
+                      "surface-container-low": "#f3f3f4",
+                      "secondary-fixed-dim": "#c0c1ff",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#444749",
+                      "on-tertiary-fixed": "#191c1e",
+                      "background": "#f9f9f9",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed": "#e1e2e4",
+                      "primary-container": "#131b2e",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "on-surface": "#1a1c1c",
+                      "inverse-surface": "#2f3131",
+                      "secondary-container": "#6063ee",
+                      "on-tertiary-container": "#828486",
+                      "on-surface-variant": "#45464d",
+                      "primary": "#000000",
+                      "tertiary-container": "#191c1e",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e2e2e2",
+                      "surface-bright": "#f9f9f9",
+                      "on-primary-container": "#7c839b",
+                      "inverse-primary": "#bec6e0",
+                      "secondary-fixed": "#e1e0ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "gutter": "24px",
+                      "sidebar-width": "220px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "margin-page": "40px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+        .chart-bar { transition: height 1s ease-out; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed h-full w-[220px] left-0 top-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col gap-2 p-4 z-50">
+<div class="mb-6 px-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Nexus AI</h1>
+<p class="text-label-sm text-on-surface-variant">Autonomous OS</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Navigation Items Mapping -->
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Executive Home</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined">track_changes</span>
+<span class="font-label-md text-label-md">Goals</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label-md text-label-md">Projects</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Timeline</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined">corporate_fare</span>
+<span class="font-label-md text-label-md">Departments</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md text-label-md">AI Workforce</span>
+</a>
+<!-- Active Tab: Reports -->
+<a class="flex items-center gap-3 bg-surface-container-low text-primary border-l-2 border-secondary font-semibold py-2 px-4" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md">Knowledge Base</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-md text-label-md">Market &amp; Research</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-md text-label-md mt-4 hover:opacity-90 active:scale-[0.98] transition-all">
+                Launch Workflow
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 ml-[220px] w-[calc(100%-220px)] h-16 bg-surface-container-lowest/70 backdrop-blur-md border-b border-outline-variant flex items-center justify-between px-gutter z-40">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="absolute inset-y-0 left-3 flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-body-sm w-[300px] focus:ring-1 focus:ring-secondary transition-all" placeholder="Search executive intelligence..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-label-md text-on-secondary-container bg-secondary/10 px-3 py-1 rounded-full">Growth Stage: Alpha</span>
+<div class="flex items-center gap-4 border-l border-outline-variant pl-6">
+<button class="relative text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">monitoring</span>
+</button>
+<img alt="Executive Profile" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A professional, high-resolution portrait of a corporate executive in a modern, brightly lit office environment. The lighting is soft and natural, emphasizing a clean and authoritative look. The individual has a confident, neutral expression, perfectly aligning with a minimalist and sophisticated design system of a high-end AI platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGUxzBLAAfbk9uEUl_85Exq9YzD0KOhnqsGM4xT8tYH_5AZvf9KYR_geV_YIuMwfHyDQ2NSiaAV9VjacGNpzMwPEmtqEAz4XU0G_lZiPGAtuUs_EfnFdVkN-ci7zwyr-iRuOzFYwHq8suW2pFLDMNErOThS_Wb5GoWjO85QrB3y-B_jyp_0JKPT8GbJDNvBiYru0tQ3YOd3nMVjTHywrBRqfqY6tZ9_tK1ty41yimidwAnwVjxgdh9zgHP3XadqccK4F6Hfy1CWRs"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-[220px] pt-24 px-gutter pb-12 max-w-container-max mx-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-stack-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Performance Reports</h2>
+<p class="text-body-md text-on-surface-variant">Executive summary for Q3 Fiscal Year 2024</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 border border-outline-variant bg-surface-container-lowest px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">filter_list</span> Filter
+                </button>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">download</span> Export PDF
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Performance Audit Card (Line Chart) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-lg shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Performance Audit</h3>
+<p class="text-body-sm text-on-surface-variant">Autonomous throughput vs. target KPI</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-secondary rounded-full"></span>
+<span class="text-label-sm">Actual</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-outline-variant rounded-full"></span>
+<span class="text-label-sm">Projected</span>
+</div>
+</div>
+</div>
+<!-- SVG Line Chart Mockup -->
+<div class="relative h-64 w-full mt-8">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 800 200">
+<!-- Grid Lines -->
+<line stroke="#f1f1f1" stroke-width="1" x1="0" x2="800" y1="0" y2="0"></line>
+<line stroke="#f1f1f1" stroke-width="1" x1="0" x2="800" y1="50" y2="50"></line>
+<line stroke="#f1f1f1" stroke-width="1" x1="0" x2="800" y1="100" y2="100"></line>
+<line stroke="#f1f1f1" stroke-width="1" x1="0" x2="800" y1="150" y2="150"></line>
+<!-- Projected Path (Dashed) -->
+<path d="M0,150 C100,140 200,160 300,120 S500,80 600,90 S700,50 800,40" fill="none" stroke="#e2e2e2" stroke-dasharray="4" stroke-width="2"></path>
+<!-- Actual Path (Solid Primary) -->
+<path d="M0,160 C100,145 200,155 300,110 S500,70 600,85 S700,40 800,20" fill="none" stroke="#4648d4" stroke-width="3"></path>
+<!-- Data Points -->
+<circle cx="300" cy="110" fill="#4648d4" r="4"></circle>
+<circle cx="600" cy="85" fill="#4648d4" r="4"></circle>
+</svg>
+<div class="flex justify-between mt-4 text-label-sm text-on-surface-variant px-2">
+<span>WK 01</span><span>WK 04</span><span>WK 08</span><span>WK 12</span><span>WK 16</span>
+</div>
+</div>
+</div>
+<!-- Resource Allocation (Progress Rings) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-lg shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Resource Allocation</h3>
+<p class="text-body-sm text-on-surface-variant mb-6">Compute &amp; Human Capital split</p>
+<div class="space-y-6 mt-4">
+<div class="space-y-2">
+<div class="flex justify-between text-label-md">
+<span>Core Infrastructure</span>
+<span>68%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[68%]" style="transition: width 2s ease-in-out;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-label-md">
+<span>Human R&amp;D Oversight</span>
+<span>24%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[24%]" style="transition: width 2s ease-in-out;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-label-md">
+<span>Legacy Systems</span>
+<span>8%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-outline-variant h-full w-[8%]" style="transition: width 2s ease-in-out;"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">verified</span>
+<div>
+<p class="text-label-md">Allocation Efficient</p>
+<p class="text-label-sm text-on-surface-variant">Recommended shift of 4% to R&amp;D.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Growth Forecasting (Bar Chart) -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-lg shadow-sm flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Growth Forecasting</h3>
+<div class="flex-1 flex items-end justify-between gap-4 h-48 px-4">
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-surface-container-highest rounded-t-sm" style="height: 40%"></div>
+<span class="text-label-sm opacity-60">OCT</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-surface-container-highest rounded-t-sm" style="height: 55%"></div>
+<span class="text-label-sm opacity-60">NOV</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-surface-container-highest rounded-t-sm" style="height: 48%"></div>
+<span class="text-label-sm opacity-60">DEC</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-primary rounded-t-sm" style="height: 75%"></div>
+<span class="text-label-sm font-bold">JAN</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-secondary rounded-t-sm" style="height: 85%"></div>
+<span class="text-label-sm font-bold">FEB</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-secondary-container rounded-t-sm" style="height: 95%"></div>
+<span class="text-label-sm font-bold">MAR</span>
+</div>
+</div>
+<p class="mt-6 text-body-sm text-on-surface-variant leading-relaxed">
+                    AI workforce scalability is projected to increase by <span class="text-primary font-bold">14.2%</span> over the next 90 days. Current infrastructure supports this trajectory with no additional overhead required.
+                </p>
+</div>
+<!-- Detailed Table Section -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-primary">Regional Performance Metrics</h3>
+<button class="text-label-md text-secondary hover:underline">View All Units</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-label-sm uppercase tracking-wider text-on-surface-variant">
+<tr>
+<th class="px-6 py-4">Business Unit</th>
+<th class="px-6 py-4">Efficiency</th>
+<th class="px-6 py-4">Drift</th>
+<th class="px-6 py-4">Health</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-label-md">North American Logistics</td>
+<td class="px-6 py-4">98.2%</td>
+<td class="px-6 py-4 text-error">-0.4%</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Optimal</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-label-md">EMEA Compliance Engine</td>
+<td class="px-6 py-4">94.7%</td>
+<td class="px-6 py-4 text-green-600">+1.2%</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Optimal</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-label-md">APAC Strategic Growth</td>
+<td class="px-6 py-4">89.1%</td>
+<td class="px-6 py-4 text-on-surface-variant">0.0%</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Review</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-label-md">LATAM Ops Support</td>
+<td class="px-6 py-4">99.9%</td>
+<td class="px-6 py-4 text-green-600">+4.5%</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Peak</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Empty State / Awaiting Config -->
+<div class="col-span-12 border-2 border-dashed border-outline-variant rounded-xl p-stack-lg flex flex-col items-center justify-center text-center py-16">
+<span class="material-symbols-outlined text-4xl text-outline-variant mb-4" style="font-size: 48px;">settings_suggest</span>
+<h4 class="font-headline-md text-headline-md text-on-surface-variant">Custom Reports Module</h4>
+<p class="text-body-md text-on-surface-variant mt-2 max-w-md">
+                    Additional data streams are currently awaiting configuration. Connect your local ERP for deep-layer neural auditing.
+                </p>
+<button class="mt-6 border border-primary text-primary px-6 py-2 rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all">
+                    Configure Data Streams
+                </button>
+</div>
+</div>
+</main>
+<script>
+        // Micro-interactions for chart bars
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach(bar => {
+                const height = bar.style.height;
+                bar.style.height = '0';
+                setTimeout(() => {
+                    bar.style.height = height;
+                }, 200);
+            });
+        });
+    </script>
+</body></html>

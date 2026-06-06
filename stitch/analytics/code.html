@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus AI | Business Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E5E7EB;
+        }
+        /* Custom scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e2e2e2;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9f9",
+                        "primary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "surface-dim": "#dadada",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-secondary-fixed": "#07006c",
+                        "tertiary": "#000000",
+                        "secondary": "#4648d4",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#565e74",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "outline-variant": "#c6c6cd",
+                        "surface-container": "#eeeeee",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "primary-fixed": "#dae2fd",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed": "#131b2e",
+                        "outline": "#76777d",
+                        "surface-container-low": "#f3f3f4",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-tertiary-fixed": "#191c1e",
+                        "background": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#e1e2e4",
+                        "primary-container": "#131b2e",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-surface": "#1a1c1c",
+                        "inverse-surface": "#2f3131",
+                        "secondary-container": "#6063ee",
+                        "on-tertiary-container": "#828486",
+                        "on-surface-variant": "#45464d",
+                        "primary": "#000000",
+                        "tertiary-container": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-container": "#7c839b",
+                        "inverse-primary": "#bec6e0",
+                        "secondary-fixed": "#e1e0ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "sidebar-width": "220px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "margin-page": "40px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed h-full w-[220px] left-0 top-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col gap-2 p-4 z-50">
+<div class="mb-8 px-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Nexus AI</h1>
+<p class="text-on-surface-variant font-label-md text-[10px] tracking-widest uppercase">Autonomous OS</p>
+</div>
+<nav class="flex flex-col gap-1 overflow-y-auto flex-1">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Executive Home</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="track_changes">track_changes</span>
+<span class="font-label-md text-label-md">Goals</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-label-md text-label-md">Projects</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">Timeline</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="corporate_fare">corporate_fare</span>
+<span class="font-label-md text-label-md">Departments</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-md text-label-md">AI Workforce</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Knowledge Base</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-label-md text-label-md">Market &amp; Research</span>
+</a>
+<!-- Active Navigation for Analytics -->
+<a class="flex items-center gap-3 bg-surface-container-low text-primary border-l-2 border-secondary font-semibold py-2 px-4" href="#">
+<span class="material-symbols-outlined" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-label-md text-label-md">Integrations</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors py-2 px-4 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Admin Center</span>
+</a>
+</nav>
+<button class="mt-4 w-full bg-primary text-on-primary py-3 rounded-lg font-label-md text-label-md active:scale-[0.98] transition-all duration-150">
+            Launch Workflow
+        </button>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 ml-[220px] w-[calc(100%-220px)] h-16 bg-surface-container-lowest/70 backdrop-blur-md border-b border-outline-variant flex items-center justify-between px-gutter z-40">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 py-2 text-body-sm focus:ring-1 focus:ring-secondary" placeholder="Search analytics models..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-on-surface-variant font-label-md text-[11px] tracking-wide bg-surface-container px-3 py-1 rounded-full uppercase">Growth Stage: Alpha</span>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container p-2 rounded-lg transition-all">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container p-2 rounded-lg transition-all">monitoring</button>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Executive Profile" data-alt="A professional headshot of a senior executive in a high-key lighting environment. The portrait is minimalist with a clean, light grey background. The executive is wearing a sharp, modern tailored suit, projecting an aura of authoritative precision and technological foresight, perfectly aligned with the Nexus AI corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrQcktoH6V9vG9yb_yFiqW4LWaFC3tdCnF321yi3DvL1w3rpKab8qDW9_7_Nn779T1LDltCBuRQ23_nukCBzWUxVR6LzQBy2nLzf5uELDESKf0R-F6ZgRrS49OPRf5-0EYSV6Oq3QSYA1zJkMAg0ucsKKDVCDbchj8b3BKsN_ejIoF0l5moqRfLYzR6ZySMeDo8ujmoctKpDc-szFj_Nwh0CWrsvmY93U9YTWTb_H9ulhpdJLFrntEB4W049na9Pee5xzs5N55KNc"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[220px] pt-16 p-gutter min-h-screen">
+<!-- Header Section -->
+<header class="mb-stack-lg flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Enterprise Health Index</h2>
+<p class="text-on-surface-variant font-body-md mt-1">Real-time performance metrics and deep-dive cohort analysis.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-lowest border border-outline-variant text-primary px-4 py-2 rounded-lg flex items-center gap-2 font-label-md text-label-md hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+                    Last 30 Days
+                </button>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg flex items-center gap-2 font-label-md text-label-md active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+                    Export PDF
+                </button>
+</div>
+</header>
+<!-- Bento Grid for Stats -->
+<div class="bento-grid mb-stack-lg">
+<!-- MRR Card -->
+<div class="col-span-12 md:col-span-3 bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-secondary/10 text-secondary rounded-lg material-symbols-outlined">payments</span>
+<span class="text-green-600 font-label-md text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                        +12.4%
+                    </span>
+</div>
+<p class="text-on-surface-variant font-label-md text-sm uppercase tracking-wider">Monthly Recurring Revenue</p>
+<h3 class="font-headline-lg text-headline-lg mt-1">$4.2M</h3>
+<div class="mt-4 h-12 w-full flex items-end gap-1">
+<!-- Faux Sparkline -->
+<div class="bg-secondary/20 w-full h-[40%] rounded-t-sm"></div>
+<div class="bg-secondary/20 w-full h-[60%] rounded-t-sm"></div>
+<div class="bg-secondary/20 w-full h-[50%] rounded-t-sm"></div>
+<div class="bg-secondary/20 w-full h-[70%] rounded-t-sm"></div>
+<div class="bg-secondary/20 w-full h-[90%] rounded-t-sm"></div>
+<div class="bg-secondary w-full h-[85%] rounded-t-sm"></div>
+</div>
+</div>
+<!-- Churn Card -->
+<div class="col-span-12 md:col-span-3 bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-error/10 text-error rounded-lg material-symbols-outlined">group_remove</span>
+<span class="text-red-600 font-label-md text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_down</span>
+                        -0.8%
+                    </span>
+</div>
+<p class="text-on-surface-variant font-label-md text-sm uppercase tracking-wider">Net Revenue Churn</p>
+<h3 class="font-headline-lg text-headline-lg mt-1">1.24%</h3>
+<p class="text-on-surface-variant font-body-sm mt-4 italic text-[12px]">Optimized by AI retention agents</p>
+</div>
+<!-- Acquisition Card -->
+<div class="col-span-12 md:col-span-3 bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-on-tertiary-container/10 text-on-tertiary-container rounded-lg material-symbols-outlined">ads_click</span>
+<span class="text-green-600 font-label-md text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                        +5.2%
+                    </span>
+</div>
+<p class="text-on-surface-variant font-label-md text-sm uppercase tracking-wider">Customer Acquisition Cost</p>
+<h3 class="font-headline-lg text-headline-lg mt-1">$1,840</h3>
+<div class="w-full bg-surface-container-low h-1 rounded-full mt-6 overflow-hidden">
+<div class="bg-on-tertiary-container h-full w-2/3"></div>
+</div>
+</div>
+<!-- LTV Card -->
+<div class="col-span-12 md:col-span-3 bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-primary/10 text-primary rounded-lg material-symbols-outlined">loyalty</span>
+<span class="text-green-600 font-label-md text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                        +21.4%
+                    </span>
+</div>
+<p class="text-on-surface-variant font-label-md text-sm uppercase tracking-wider">Lifetime Value (LTV)</p>
+<h3 class="font-headline-lg text-headline-lg mt-1">$14.8k</h3>
+<p class="text-on-surface-variant font-body-sm mt-4 text-[12px]">LTV/CAC Ratio: 8.04x</p>
+</div>
+<!-- Main Revenue Visualization -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 relative overflow-hidden">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary">Revenue Velocity</h4>
+<p class="text-on-surface-variant font-body-sm">Tracking growth trajectories across global markets.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-[12px] font-label-md bg-surface-container text-primary rounded">Daily</button>
+<button class="px-3 py-1 text-[12px] font-label-md text-on-surface-variant rounded hover:bg-surface-container">Monthly</button>
+</div>
+</div>
+<div class="h-[300px] w-full flex items-end gap-4 border-b border-outline-variant/30 pb-4">
+<!-- Abstract Visualization -->
+<div class="flex-1 bg-gradient-to-t from-secondary/40 to-secondary/10 h-[40%] rounded-t-lg transition-all hover:h-[45%] duration-500 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">Q1: $2.4M</div>
+</div>
+<div class="flex-1 bg-gradient-to-t from-secondary/40 to-secondary/10 h-[55%] rounded-t-lg transition-all hover:h-[60%] duration-500 cursor-pointer group relative"></div>
+<div class="flex-1 bg-gradient-to-t from-secondary/40 to-secondary/10 h-[48%] rounded-t-lg transition-all hover:h-[53%] duration-500 cursor-pointer group relative"></div>
+<div class="flex-1 bg-gradient-to-t from-secondary/40 to-secondary/10 h-[72%] rounded-t-lg transition-all hover:h-[77%] duration-500 cursor-pointer group relative"></div>
+<div class="flex-1 bg-gradient-to-t from-secondary/40 to-secondary/10 h-[65%] rounded-t-lg transition-all hover:h-[70%] duration-500 cursor-pointer group relative"></div>
+<div class="flex-1 bg-gradient-to-t from-secondary/40 to-secondary/10 h-[88%] rounded-t-lg transition-all hover:h-[93%] duration-500 cursor-pointer group relative"></div>
+<div class="flex-1 bg-gradient-to-t from-secondary/60 to-secondary/20 h-[92%] rounded-t-lg border-2 border-secondary/30 transition-all hover:h-[97%] duration-500 cursor-pointer group relative"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant font-label-md text-[11px] mt-4 uppercase">
+<span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span><span>JUL</span>
+</div>
+</div>
+<!-- Geographic Distribution -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-2xl p-8">
+<h4 class="font-headline-md text-headline-md text-primary mb-6">Global Demand</h4>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body-md">North America</span>
+</div>
+<span class="font-label-md text-primary">42%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-body-md">European Union</span>
+</div>
+<span class="font-label-md text-primary">28%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-body-md">APAC Region</span>
+</div>
+<span class="font-label-md text-primary">18%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-md">Middle East</span>
+</div>
+<span class="font-label-md text-primary">12%</span>
+</div>
+</div>
+<div class="mt-8 relative h-32 w-full rounded-xl overflow-hidden grayscale opacity-50 contrast-125 border border-outline-variant">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent"></div>
+<img alt="Global Map Representation" class="w-full h-full object-cover" data-alt="A stylized, high-contrast satellite view of a metropolitan global map. The imagery uses a monochromatic, deep charcoal and platinum palette, emphasizing urban density and technological connectivity. Soft glowing nodes and subtle light-traces connect major cities, representing global data flow and autonomous intelligence networks in a minimalist corporate luxury style." data-location="London" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQO5PiLCmMRwUl7EGdHQKpafA-2APfuCkSbEP7IZW5NmF1d08vUI_G4zzpGGtnyoplvCZp8hIr7RGf9Usw0iCAxWQW1Ag6ffgUo2ISklo-6ElV_2-Nd-otFpv-jAsM-rfs-HlJEH25EdatAp0JuzRS420QC_0j-xwzXPAldMful1MvZlJb4HVRyYrMoCZ3hsx3oQ03E2jPQCs_uQ5GGlkDYMolzGWc9nKrly6KvHrKurnT7FFKjRkgQkj44u7ncBRIXr7dtWzuyBQ"/>
+</div>
+</div>
+<!-- Interactive Cohort Table -->
+<div class="col-span-12 bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden">
+<div class="p-8 border-b border-outline-variant">
+<h4 class="font-headline-md text-headline-md text-primary">Retention Cohorts</h4>
+<p class="text-on-surface-variant font-body-sm">Segmented user retention by acquisition month.</p>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="p-4 font-label-md text-[12px] uppercase">Cohort</th>
+<th class="p-4 font-label-md text-[12px] uppercase">Users</th>
+<th class="p-4 font-label-md text-[12px] uppercase">M1</th>
+<th class="p-4 font-label-md text-[12px] uppercase">M2</th>
+<th class="p-4 font-label-md text-[12px] uppercase">M3</th>
+<th class="p-4 font-label-md text-[12px] uppercase">M4</th>
+<th class="p-4 font-label-md text-[12px] uppercase">M5</th>
+<th class="p-4 font-label-md text-[12px] uppercase">M6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="p-4 font-semibold">Jan 2024</td>
+<td class="p-4 text-on-surface-variant">2,420</td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">94%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">88%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">82%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">79%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">74%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">71%</div></td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="p-4 font-semibold">Feb 2024</td>
+<td class="p-4 text-on-surface-variant">3,110</td>
+<td class="p-4"><div class="bg-secondary/20 p-2 text-center rounded font-bold">96%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">91%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">85%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">81%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">78%</div></td>
+<td class="p-4 text-on-surface-variant text-center">-</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="p-4 font-semibold">Mar 2024</td>
+<td class="p-4 text-on-surface-variant">1,890</td>
+<td class="p-4"><div class="bg-secondary/30 p-2 text-center rounded font-bold">98%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">94%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">89%</div></td>
+<td class="p-4"><div class="bg-secondary/10 p-2 text-center rounded">86%</div></td>
+<td class="p-4 text-on-surface-variant text-center">-</td>
+<td class="p-4 text-on-surface-variant text-center">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- "Awaiting Configuration" State Example -->
+<div class="col-span-12 lg:col-span-6 border-2 border-dashed border-outline-variant rounded-2xl p-12 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-outline-variant text-[48px] mb-4">settings_input_component</span>
+<h5 class="text-on-surface font-headline-md">Custom Metric Stream</h5>
+<p class="text-on-surface-variant font-body-sm max-w-sm mt-2">Awaiting Configuration. Connect your custom internal API endpoints to visualize proprietary KPIs.</p>
+<button class="mt-6 border border-primary text-primary px-6 py-2 rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all">Configure Stream</button>
+</div>
+<!-- AI Insight Card -->
+<div class="col-span-12 lg:col-span-6 bg-primary-container text-on-primary-container rounded-2xl p-12 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary">bolt</span>
+<span class="font-label-md uppercase tracking-widest text-[11px] text-on-primary-container/60">Autonomous Insight</span>
+</div>
+<h4 class="font-headline-lg text-headline-lg leading-tight">Projected 18% growth in APAC region for Q3.</h4>
+<p class="mt-4 font-body-md text-on-primary-container/80">Our predictive models indicate an untapped enterprise market in the finance sector. Deploying automated outreach agents is recommended to capture early-mover advantage.</p>
+</div>
+<button class="mt-8 w-fit bg-secondary text-on-primary font-label-md px-6 py-3 rounded-lg flex items-center gap-2 active:scale-95 transition-all">
+                    Initiate Campaign
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Micro-interactions Script -->
+<script>
+        // Simple hover effect for "Launch Workflow" button scale
+        const launchBtn = document.querySelector('aside button');
+        launchBtn.addEventListener('mousedown', () => launchBtn.classList.add('scale-[0.96]'));
+        launchBtn.addEventListener('mouseup', () => launchBtn.classList.remove('scale-[0.96]'));
+
+        // Basic chart animation trigger
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.flex-1.bg-gradient-to-t');
+            bars.forEach((bar, index) => {
+                const originalHeight = bar.style.height;
+                bar.style.height = '0%';
+                setTimeout(() => {
+                    bar.style.height = originalHeight;
+                }, 100 * index);
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,6 @@
+{
+  "name": "Nexus AI",
+  "description": "Autonomous Business Operating System (ABOS) designed to transform strategic goals into business outcomes through active cooperating departments and AI workforces.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

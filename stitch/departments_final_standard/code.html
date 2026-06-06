@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus AI - Departments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#c0c1ff",
+            "secondary": "#4648d4",
+            "primary-container": "#131b2e",
+            "inverse-surface": "#2f3131",
+            "inverse-primary": "#bec6e0",
+            "surface-bright": "#f9f9f9",
+            "on-tertiary-fixed-variant": "#444749",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "surface": "#f9f9f9",
+            "on-secondary-fixed-variant": "#2f2ebe",
+            "outline-variant": "#c6c6cd",
+            "on-tertiary-container": "#828486",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed": "#07006c",
+            "on-secondary-container": "#fffbff",
+            "outline": "#76777d",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-surface-variant": "#45464d",
+            "on-primary-fixed": "#131b2e",
+            "on-background": "#1a1c1c",
+            "background": "#f9f9f9",
+            "surface-container-low": "#f3f3f4",
+            "on-primary-fixed-variant": "#3f465c",
+            "on-primary-container": "#7c839b",
+            "surface-tint": "#565e74",
+            "surface-container-high": "#e8e8e8",
+            "primary-fixed": "#dae2fd",
+            "primary-fixed-dim": "#bec6e0",
+            "surface-variant": "#e2e2e2",
+            "secondary-fixed": "#e1e0ff",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#191c1e",
+            "inverse-on-surface": "#f0f1f1",
+            "secondary-container": "#6063ee",
+            "tertiary-fixed-dim": "#c5c7c8",
+            "primary": "#000000",
+            "on-surface": "#1a1c1c",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#e1e2e4",
+            "surface-container": "#eeeeee",
+            "surface-container-highest": "#e2e2e2",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#191c1e",
+            "tertiary": "#000000",
+            "surface-dim": "#dadada"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "sidebar-width": "220px",
+            "stack-md": "16px",
+            "container-max": "1440px",
+            "margin-page": "40px",
+            "stack-lg": "32px",
+            "stack-sm": "8px",
+            "gutter": "24px"
+          },
+          "fontFamily": {
+            "headline-xl": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-nav {
+      background: rgba(249, 249, 249, 0.7);
+      backdrop-filter: blur(12px) saturate(160%);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #E5E7EB;
+      border-radius: 10px;
+    }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1024px) {
+      .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .bento-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Side Navigation Shell -->
+<aside class="fixed left-0 top-0 h-screen w-[220px] bg-surface dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline flex flex-col py-stack-md px-stack-sm z-50">
+<div class="flex flex-col mb-10 px-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-on-primary-fixed">Nexus AI</h1>
+<p class="text-body-sm text-on-surface-variant opacity-70">Enterprise OS</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1 overflow-y-auto custom-scrollbar">
+<!-- Active Item: Departments -->
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 bg-surface-container-low dark:bg-surface-container text-primary font-semibold border-r-2 border-secondary">
+<span class="material-symbols-outlined text-[20px]">corporate_fare</span>
+<span class="font-body-md text-body-md">Departments</span>
+</div>
+<!-- Inactive Items -->
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Executive Home</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">track_changes</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Goals</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Projects</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Timeline</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="font-body-md text-body-md text-on-surface-variant">AI Workforce</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Reports</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Knowledge Base</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">travel_explore</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Market &amp; Research</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Analytics</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Integrations</span>
+</div>
+<div class="mt-auto pt-6">
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Settings</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-colors duration-200 text-on-surface-variant dark:text-outline hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Admin Center</span>
+</div>
+</div>
+</nav>
+<div class="mt-8 px-4 py-4 bg-primary-container rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[10px] text-white/60 font-bold uppercase tracking-widest">Enterprise Plan</span>
+<span class="w-2 h-2 rounded-full bg-green-400"></span>
+</div>
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="A professional headshot of a middle-aged male executive with a confident smile, wearing a dark navy tailored suit and a crisp white shirt, photographed against a clean architectural background with soft natural light, maintaining a modern and prestigious corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQc_fLPEQloiBfYxYX9vXM-DOuxQBQ-Nm5gu11sR61OGaaejqM7kMDjemTkleRbxD9w0IUEAZqoINuLv9vVTeTN8dmNrVf-uAlx3gxviD0gPXwmDBltm6dJeb4-dADAl5UqDDu2aO4AveKlJ5UEhNeIw2l0b3ah-0K24t9wmuJGoDkVu4T_C0CxCKFvLA65FkUckIaOaoaA-0GXrEEmDS1W5NWqcsKtH3RF3hQsQm7YcdUG4f_zTT6b-C6SZv0KLKtzrw5IvGFEGY"/>
+<div class="flex flex-col">
+<span class="text-white text-xs font-semibold">Nexus AI Inc.</span>
+<span class="text-white/50 text-[10px]">Growth Stage</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 right-0 left-[220px] h-16 glass-nav border-b border-outline-variant dark:border-outline shadow-sm flex items-center justify-between px-margin-page z-40">
+<div class="flex items-center bg-surface-container-low border border-outline-variant rounded-lg px-3 py-1.5 w-96 focus-within:ring-2 focus-within:ring-secondary/20 transition-all">
+<span class="material-symbols-outlined text-outline text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full placeholder:text-outline-variant" placeholder="Search departments, resources, or analytics..." type="text"/>
+<span class="text-[10px] bg-surface-variant text-outline-variant px-1.5 py-0.5 rounded border border-outline-variant">⌘K</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">help_outline</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-3 ml-2">
+<div class="text-right hidden sm:block">
+<p class="font-label-md text-label-md text-primary leading-none">Alex Founder</p>
+<p class="text-[11px] text-on-surface-variant uppercase tracking-tighter mt-1">Founder &amp; CEO</p>
+</div>
+<img alt="User Profile" class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsqTZPZN7mCkkYxRxL2JlcpxRJEQ9SR-1dkRnZ7jY_pVUCeB9CUrASyuryp9ZO6u1F3X4XuoQVUvxMZKCNS3KFFGOdJrnTyi813v_yERlUupRLFFoxQGQTrORQQD2zGg4oV5L7hCkZC5B-VY0X2af7Hy_9xheHyFWvSOLC_ZEKb8jWMOGl7QBT4FiKmt_PTN9e2KDM8FxHcYGp8gtilnT2ZVC3AwLM0qkPuzhMbJTafDBkOZem9elHeeArwmNmIy6NSYO7ULe4ccM"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[220px] pt-16 min-h-screen">
+<div class="max-w-[1440px] mx-auto p-margin-page">
+<!-- Header Section -->
+<section class="mb-stack-lg flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Departments</h2>
+<p class="text-body-md text-on-surface-variant max-w-2xl">Organizational health overview. Monitoring performance clusters, AI workforce integration, and resource allocation across your core business units.</p>
+</div>
+<div class="flex gap-stack-sm">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface text-primary border border-outline-variant rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+            Export Audit
+          </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Department
+          </button>
+</div>
+</section>
+<!-- Department Bento Grid -->
+<section class="bento-grid mb-stack-lg">
+<!-- Engineering -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-6">
+<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-600 text-[28px]" data-weight="fill">code</span>
+</div>
+<span class="px-2.5 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Optimal</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-1">Engineering</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">Ship cycles and tech debt</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-label-sm text-on-surface-variant mb-1.5">
+<span>Performance</span>
+<span class="font-bold text-primary">94%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-blue-600 rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Projects</p>
+<p class="font-label-md text-primary">12 Active</p>
+</div>
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Capacity</p>
+<p class="font-label-md text-primary">82%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Research -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-6">
+<div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-purple-600 text-[28px]" data-weight="fill">science</span>
+</div>
+<span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Scaling</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-1">Research</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">Market intelligence &amp; R&amp;D</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-label-sm text-on-surface-variant mb-1.5">
+<span>Performance</span>
+<span class="font-bold text-primary">88%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-purple-600 rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Projects</p>
+<p class="font-label-md text-primary">8 Active</p>
+</div>
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Capacity</p>
+<p class="font-label-md text-primary">91%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Design -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-6">
+<div class="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-pink-600 text-[28px]" data-weight="fill">palette</span>
+</div>
+<span class="px-2.5 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Active</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-1">Design</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">UX/UI &amp; Brand systems</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-label-sm text-on-surface-variant mb-1.5">
+<span>Performance</span>
+<span class="font-bold text-primary">91%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-pink-600 rounded-full" style="width: 91%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Projects</p>
+<p class="font-label-md text-primary">5 Active</p>
+</div>
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Capacity</p>
+<p class="font-label-md text-primary">64%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Marketing -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-6">
+<div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-600 text-[28px]" data-weight="fill">campaign</span>
+</div>
+<span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Scaling</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-1">Marketing</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">Growth &amp; acquisition funnel</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-label-sm text-on-surface-variant mb-1.5">
+<span>Performance</span>
+<span class="font-bold text-primary">76%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-orange-600 rounded-full" style="width: 76%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Projects</p>
+<p class="font-label-md text-primary">15 Active</p>
+</div>
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Capacity</p>
+<p class="font-label-md text-primary">98%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sales -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-6">
+<div class="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-teal-600 text-[28px]" data-weight="fill">trending_up</span>
+</div>
+<span class="px-2.5 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Optimal</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-1">Sales</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">Revenue &amp; pipeline velocity</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-label-sm text-on-surface-variant mb-1.5">
+<span>Performance</span>
+<span class="font-bold text-primary">97%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-teal-600 rounded-full" style="width: 97%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Projects</p>
+<p class="font-label-md text-primary">22 Active</p>
+</div>
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Capacity</p>
+<p class="font-label-md text-primary">75%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Finance -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-6">
+<div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 text-[28px]" data-weight="fill">account_balance</span>
+</div>
+<span class="px-2.5 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Optimal</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-1">Finance</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">Treasury &amp; burn management</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-label-sm text-on-surface-variant mb-1.5">
+<span>Performance</span>
+<span class="font-bold text-primary">99%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-emerald-600 rounded-full" style="width: 99%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Projects</p>
+<p class="font-label-md text-primary">3 Active</p>
+</div>
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Capacity</p>
+<p class="font-label-md text-primary">42%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Operations -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-6">
+<div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-600 text-[28px]" data-weight="fill">settings_suggest</span>
+</div>
+<span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Scaling</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-1">Operations</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">Internal systems &amp; workflow</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-label-sm text-on-surface-variant mb-1.5">
+<span>Performance</span>
+<span class="font-bold text-primary">82%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-amber-600 rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Projects</p>
+<p class="font-label-md text-primary">11 Active</p>
+</div>
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Capacity</p>
+<p class="font-label-md text-primary">89%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Legal -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-6">
+<div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600 text-[28px]" data-weight="fill">gavel</span>
+</div>
+<span class="px-2.5 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Active</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-1">Legal</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">Compliance &amp; governance</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-label-sm text-on-surface-variant mb-1.5">
+<span>Performance</span>
+<span class="font-bold text-primary">95%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-slate-600 rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Projects</p>
+<p class="font-label-md text-primary">4 Active</p>
+</div>
+<div>
+<p class="text-[10px] text-outline-variant uppercase font-bold">Capacity</p>
+<p class="font-label-md text-primary">31%</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Analytics Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-stack-lg">
+<!-- Aggregate Efficiency Chart -->
+<div class="lg:col-span-2 bg-white border border-outline-variant rounded-2xl p-8 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h4 class="font-headline-md text-headline-md">Aggregate Efficiency</h4>
+<p class="text-body-sm text-on-surface-variant">Cross-departmental performance over the last 30 days</p>
+</div>
+<select class="text-body-sm bg-surface border border-outline-variant rounded-lg px-3 py-1.5 focus:ring-secondary/20">
+<option>Last 30 Days</option>
+<option>Last Quarter</option>
+<option>Year to Date</option>
+</select>
+</div>
+<div class="h-[240px] flex items-end justify-between gap-4">
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-blue-100 rounded-t-lg transition-all duration-700 hover:bg-blue-600" style="height: 94%"></div>
+<span class="text-[10px] mt-2 font-bold text-outline-variant uppercase">Eng</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-purple-100 rounded-t-lg transition-all duration-700 hover:bg-purple-600" style="height: 88%"></div>
+<span class="text-[10px] mt-2 font-bold text-outline-variant uppercase">Res</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-pink-100 rounded-t-lg transition-all duration-700 hover:bg-pink-600" style="height: 91%"></div>
+<span class="text-[10px] mt-2 font-bold text-outline-variant uppercase">Des</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-orange-100 rounded-t-lg transition-all duration-700 hover:bg-orange-600" style="height: 76%"></div>
+<span class="text-[10px] mt-2 font-bold text-outline-variant uppercase">Mkt</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-teal-100 rounded-t-lg transition-all duration-700 hover:bg-teal-600" style="height: 97%"></div>
+<span class="text-[10px] mt-2 font-bold text-outline-variant uppercase">Sal</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-emerald-100 rounded-t-lg transition-all duration-700 hover:bg-emerald-600" style="height: 99%"></div>
+<span class="text-[10px] mt-2 font-bold text-outline-variant uppercase">Fin</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-amber-100 rounded-t-lg transition-all duration-700 hover:bg-amber-600" style="height: 82%"></div>
+<span class="text-[10px] mt-2 font-bold text-outline-variant uppercase">Ops</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-slate-100 rounded-t-lg transition-all duration-700 hover:bg-slate-600" style="height: 95%"></div>
+<span class="text-[10px] mt-2 font-bold text-outline-variant uppercase">Leg</span>
+</div>
+</div>
+</div>
+<!-- Total Resource Utilization -->
+<div class="bg-primary text-white rounded-2xl p-8 flex flex-col justify-between shadow-lg relative overflow-hidden">
+<!-- Abstract Background Pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<path d="M0 100 L100 0" fill="none" stroke="white" stroke-width="0.1"></path>
+<path d="M0 90 L90 0" fill="none" stroke="white" stroke-width="0.1"></path>
+<path d="M10 100 L100 10" fill="none" stroke="white" stroke-width="0.1"></path>
+</svg>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-white/60">hub</span>
+<h4 class="text-[12px] font-bold uppercase tracking-widest text-white/60">System Load</h4>
+</div>
+<p class="font-headline-lg text-headline-lg mb-1">87.4%</p>
+<p class="text-body-sm text-white/50">Total Resource Utilization</p>
+</div>
+<div class="relative z-10 pt-8 space-y-4">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-white/60">Human Capital</span>
+<span class="font-bold">64.2%</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-white/60">AI Workforce</span>
+<span class="font-bold">23.2%</span>
+</div>
+<div class="w-full h-1 bg-white/10 rounded-full mt-4">
+<div class="h-full bg-secondary-fixed-dim rounded-full" style="width: 87.4%"></div>
+</div>
+<button class="w-full mt-6 py-3 bg-white text-primary rounded-xl font-bold text-label-md transition-transform active:scale-95">
+              Optimize Allocation
+            </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<script>
+    // Lightweight micro-interactions
+    document.querySelectorAll('.bento-grid > div').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-4px)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0px)';
+      });
+    });
+  </script>
+</body></html>

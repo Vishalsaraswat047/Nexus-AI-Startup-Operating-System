@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects | Nexus AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "secondary": "#4648d4",
+                        "primary-container": "#131b2e",
+                        "inverse-surface": "#2f3131",
+                        "inverse-primary": "#bec6e0",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "surface": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary-container": "#828486",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#07006c",
+                        "on-secondary-container": "#fffbff",
+                        "outline": "#76777d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "on-primary-fixed": "#131b2e",
+                        "on-background": "#1a1c1c",
+                        "background": "#f9f9f9",
+                        "surface-container-low": "#f3f3f4",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-primary-container": "#7c839b",
+                        "surface-tint": "#565e74",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-fixed": "#dae2fd",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-fixed": "#e1e0ff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#191c1e",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary-container": "#6063ee",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "primary": "#000000",
+                        "on-surface": "#1a1c1c",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#e1e2e4",
+                        "surface-container": "#eeeeee",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#191c1e",
+                        "tertiary": "#000000",
+                        "surface-dim": "#dadada"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar-width": "220px",
+                        "stack-md": "16px",
+                        "container-max": "1440px",
+                        "margin-page": "40px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E5E7EB;
+            border-radius: 10px;
+        }
+        .active-tab-line {
+            position: absolute;
+            left: 0;
+            width: 2px;
+            height: 24px;
+            background-color: #4648d4;
+        }
+        .drawer-transition {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-[220px] bg-surface dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline flex flex-col py-stack-md px-stack-sm z-50">
+<div class="mb-stack-lg px-4 flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-on-primary-fixed">Nexus AI</span>
+<span class="text-label-sm text-outline">Enterprise OS</span>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto">
+<div class="mb-4">
+<p class="px-4 text-[10px] font-bold uppercase tracking-widest text-outline mb-2">Primary</p>
+<div class="space-y-0.5">
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-body-md">Executive Home</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">track_changes</span>
+<span class="font-body-md">Goals</span>
+</a>
+<a class="relative flex items-center gap-3 py-2 px-4 rounded-lg bg-surface-container-low dark:bg-surface-container text-primary font-semibold border-r-2 border-secondary" href="#">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+<span class="font-body-md">Projects</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span class="font-body-md">Timeline</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">corporate_fare</span>
+<span class="font-body-md">Departments</span>
+</a>
+</div>
+</div>
+<div class="mb-4">
+<p class="px-4 text-[10px] font-bold uppercase tracking-widest text-outline mb-2">Intelligence</p>
+<div class="space-y-0.5">
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="font-body-md">AI Workforce</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="font-body-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="font-body-md">Knowledge Base</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">travel_explore</span>
+<span class="font-body-md">Market &amp; Research</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+<span class="font-body-md">Analytics</span>
+</a>
+</div>
+</div>
+<div>
+<p class="px-4 text-[10px] font-bold uppercase tracking-widest text-outline mb-2">System</p>
+<div class="space-y-0.5">
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+<span class="font-body-md">Integrations</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+<span class="font-body-md">Admin Center</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="mt-auto pt-stack-md border-t border-outline-variant">
+<div class="flex items-center gap-3 px-4 py-2 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer">
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold text-[10px]">
+                    AF
+                </div>
+<div class="flex flex-col">
+<span class="text-label-md leading-tight">Alex Founder</span>
+<span class="text-label-sm text-outline leading-tight">Founder &amp; CEO</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-[220px] h-16 bg-surface/70 border-b border-outline-variant backdrop-blur-xl flex items-center justify-between px-margin-page z-40 shadow-sm">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-label-md focus:ring-2 focus:ring-secondary/20 transition-all" placeholder="Search projects, tasks, or agents... (⌘K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-stack-lg ml-gutter">
+<div class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 rounded-lg bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+<span class="text-label-md">May 12, 2025</span>
+</div>
+<button class="relative p-2 rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2.5 h-2 w-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<div class="flex items-center gap-3 border-l border-outline-variant pl-gutter">
+<div class="flex flex-col items-end">
+<span class="text-label-md font-bold">Nexus AI Inc.</span>
+<span class="text-[10px] uppercase font-bold text-secondary">Growth Stage</span>
+</div>
+<div class="h-10 w-10 rounded-lg overflow-hidden border border-outline-variant">
+<img alt="Nexus AI Logo" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWq9A3rxe3IyEUwlC9pGe99us1-dIrCaMrkWHS76EDpmHH_e-gUBpTaZn8NhgbdLbcsg7xQGq-AvR0HToB2MXAYc7iP-wyg0nW6miPP4PfLE9ohG7Rp1sswQ5a1zSYU4FSRxPBM4RE48KU2KaYrWpNaVnwb0jmdtD6FQrMJF356Cfie3zhNqyVY9cjNiI7LcV3_NsJZQRqSQOElqz-0lnL14Rt5KxtTBizuS2QAKDo2AjmPLc8ykbEIHvUIUDKxeCfb6mr6Wr3QJA"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-[220px] mt-16 p-margin-page min-h-[calc(100vh-64px)] bg-background">
+<!-- Header Actions -->
+<div class="flex items-center justify-between mb-stack-lg">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Active Projects</h1>
+<p class="text-body-md text-outline">Manage and track all high-level business initiatives</p>
+</div>
+<div class="flex items-center gap-stack-sm">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant bg-surface hover:bg-surface-container-low transition-colors text-label-md">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                    Filter
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant bg-surface hover:bg-surface-container-low transition-colors text-label-md">
+<span class="material-symbols-outlined text-[18px]">sort</span>
+                    Sort
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-on-primary hover:opacity-90 transition-opacity text-label-md">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    New Project
+                </button>
+</div>
+</div>
+<!-- Project List View (Linear Inspired) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-6 py-4 text-label-sm font-bold text-outline uppercase tracking-wider">Project Name</th>
+<th class="px-6 py-4 text-label-sm font-bold text-outline uppercase tracking-wider text-center">Status</th>
+<th class="px-6 py-4 text-label-sm font-bold text-outline uppercase tracking-wider">Owner</th>
+<th class="px-6 py-4 text-label-sm font-bold text-outline uppercase tracking-wider">Dependencies</th>
+<th class="px-6 py-4 text-label-sm font-bold text-outline uppercase tracking-wider">Activity</th>
+<th class="px-6 py-4 w-10"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer" onclick="toggleDrawer()">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<div>
+<div class="text-label-md font-bold">Launch MVP Platform</div>
+<div class="flex -space-x-2 mt-1">
+<img alt="Team member" class="w-6 h-6 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMVpMJ2tNINTu1U8XqA0USTZrd2kY6DKMlUjsZ0U5-HNuKanhqmyTVc0nCCQSgyk99Gp_9a5YfLxa6bq9JH3dwo3dBCgHbmON3MH3ywJO-CL8WwHUjEYCTCngBUaBubbDLOimv3iObjtUpKsaG79HszmZ-aCSlE1E_QGNEo4-xp3o-KWV1KGPgG0IeqaNI4us-vSt52ka7PolqLy_jOP3i6X3dVDdT5TTv-ObCHS5zZnvvCYet4GmMlSrj6RzCkrjkzisq8KoVBfs"/>
+<img alt="Team member" class="w-6 h-6 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFYZ_2ux7ugmEF_D7Ovy6sWjHW3sGyvNVJB-alHaDqvChaUPcNjvmKdAw4ZeCtj3kjqIsgvjN89H9XWRqYQHOOFEuk_qhtYwUGWhJUjFCT3GRqYvrOMDvvORbIZcUuc6Dp8XGPP9UmIcVyAxXJDE2YSToq9L_xqYrysAFyVfsUMEN-YXee00xmsFDsvePzDTLklP0iO4kzaBMeiBxqDef_ZJZouE8FwWBIH4TMF2Jo-zz2NHWONBt6jOjifJHUpz-TO70CCBdLwns"/>
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-[8px] font-bold">+3</div>
+</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center">
+<span class="px-3 py-1 rounded-full bg-secondary-container/10 text-secondary text-[11px] font-bold uppercase tracking-wider border border-secondary/20">In Progress</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">engineering</span>
+<span class="text-body-sm">Engineering Agent</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-error font-semibold">
+<span class="material-symbols-outlined text-[18px]">report</span>
+<span class="text-body-sm">2 Blockers</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="h-8 w-24">
+<svg class="w-full h-full stroke-secondary fill-none stroke-2" viewbox="0 0 100 30">
+<path d="M0,25 L10,20 L20,28 L30,15 L40,22 L50,10 L60,18 L70,5 L80,12 L90,2 L100,8"></path>
+</svg>
+</div>
+</td>
+<td class="px-6 py-5">
+<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer" onclick="toggleDrawer()">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<div>
+<div class="text-label-md font-bold">Landing Page Redesign</div>
+<div class="flex -space-x-2 mt-1">
+<img alt="Team member" class="w-6 h-6 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk7oSdzcHGhwF3tLjiVzM4rw_eqHKPlqNsfFnmgbGZIvMnLl48ZgrMh0FtTTOtu5EffzFb5WJ31UfW5NI-7MUD8hRlp1Oy1NADWcthK42cR8bLSZEnOQ8RrEq_knJhxeaf6PYwspES56z_pzQqiOAUVifYGrDG665PWuBpeiPtmZ8IGwmbU4uYwLxOikcBYOkDUU2M5XH-3ylv34bmtyuMTaEXKS-t5Jzx6v4G2zAoAIROvybiiFYggkEy0gJvKztXBLNKN6aTCzI"/>
+<img alt="Team member" class="w-6 h-6 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHXqjv0es2qw3GK4frESVrJag9v8-rZAGcVmCrsAomo8FOEscRHLKGSKKza7Lfce9HXkzMUO21WLD8wxFQq0mKeQnAtWvCu8oAVEjCXlwmuKC0wk-3Pstr3npHoEYynajoPw_ywnI5u-vjUusEA-RsSznLrykvPqSt1R9K-wD1n2_3OViGmbZtme3y5qJM5sbFLqeWYBiCqX6JiUnIykas84QInEfwdPv2qZ-GH_-tXhpAofGXg9zPbicwdyJWxg4DPF8DisG7f40"/>
+</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center">
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-bold uppercase tracking-wider border border-outline-variant">Review</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">palette</span>
+<span class="text-body-sm">Design Agent</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-outline text-body-sm italic">None</span>
+</td>
+<td class="px-6 py-5">
+<div class="h-8 w-24">
+<svg class="w-full h-full stroke-outline fill-none stroke-2" viewbox="0 0 100 30">
+<path d="M0,15 L10,12 L20,14 L30,15 L40,16 L50,15 L60,14 L70,15 L80,16 L90,15 L100,14"></path>
+</svg>
+</div>
+</td>
+<td class="px-6 py-5">
+<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer" onclick="toggleDrawer()">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<div class="text-label-md font-bold">AI Recommendation Engine</div>
+<div class="flex -space-x-2 mt-1">
+<img alt="Team member" class="w-6 h-6 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaF8uPKB0wHEBNMjLz2U_BbMTNtR-0Bv1JGnXNRDAPFLIq_khkPhLI851p85XK_71uMkgcEptOsZK8RiKqGZIGIl081k8lHZ20xwv9irGEceW7agtQRiJif_RTM_qzAPCPkz88DxjSYisbRvJMgN3wPy5YbxcguPNGC6q7wPPHXTF7BTCzYbukr2fTI1udDaRbASv1ohrl6T-rFL0rtkBwSDWphKH37S4JeBNADeh2Ft3HPgyTI3AHilB37QHqGVEtdqNnrqGaN9A"/>
+</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center">
+<span class="px-3 py-1 rounded-full bg-secondary-container/10 text-secondary text-[11px] font-bold uppercase tracking-wider border border-secondary/20">In Progress</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">engineering</span>
+<span class="text-body-sm">Engineering Agent</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[18px]">link</span>
+<span class="text-body-sm">1 Internal Dep</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="h-8 w-24">
+<svg class="w-full h-full stroke-secondary fill-none stroke-2" viewbox="0 0 100 30">
+<path d="M0,28 L10,25 L20,20 L30,22 L40,15 L50,18 L60,10 L70,12 L80,5 L90,8 L100,2"></path>
+</svg>
+</div>
+</td>
+<td class="px-6 py-5">
+<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer" onclick="toggleDrawer()">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div>
+<div class="text-label-md font-bold">Q3 Marketing Blitz</div>
+<div class="flex -space-x-2 mt-1">
+<img alt="Team member" class="w-6 h-6 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtilVLbSKdQA6tZALjZSi2Z4R22guQK-AKzA0gZYZSFOc1lsLHZU2tYRq1Z-5YB7jIsvnY-Ge74udrRO46ZqXHXPZEmy7eMNaMNo75Ms2AFVoYoArEX9jDBnlyObRn3vTHV4RiSeBEKEMv9LHA9AU6uCpr1zfuyA3pcn9Z8DmFU5zXvmdrt7Db-BuKiXIA-MLVZaXhpg7jgFh0oPS8_Hm4NuzLEDda9w28ef5MqVpJZ4iT9xUZYkSjTRVX2h0RkWh-kooFmTjmV5M"/>
+<img alt="Team member" class="w-6 h-6 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiMTkgXj6Ojn4a6XONhIZ6jNsCWH7OSphW3oOmg-Hoy-lHeJY4g25fm0fx-3kgi2wjz6Sg4mpFd0WBfRJOg9jQtArIaXLv6RI_LXvUKZ5ofwLnm7Kfn-WS3C8CQdmC0NmaeLXQYggN5nWZf0C9NvtUdG1wKtgK3pQx9mMolq2nyuO1_Hw14cPBQyS2RUShKu1HG738t6YYrqfAuGiRQMZgkSwr3uBVjABVOVX7jYyioVXlYwjtKRyehq9Z_jpj4j9TJueKBqkaGoQ"/>
+</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center">
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-bold uppercase tracking-wider border border-outline-variant">Planning</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">record_voice_over</span>
+<span class="text-body-sm">Marketing Agent</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-outline text-body-sm italic">None</span>
+</td>
+<td class="px-6 py-5">
+<div class="h-8 w-24">
+<svg class="w-full h-full stroke-outline fill-none stroke-1 opacity-50" viewbox="0 0 100 30">
+<path d="M0,15 H100"></path>
+</svg>
+</div>
+</td>
+<td class="px-6 py-5">
+<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Footer Info -->
+<div class="mt-stack-md flex items-center justify-between text-body-sm text-outline">
+<p>Showing 4 of 24 active projects</p>
+<div class="flex items-center gap-stack-sm">
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container-low disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container-low">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Initiative Detail Right-Side Drawer (Hidden by default) -->
+<div class="fixed inset-0 bg-primary/20 backdrop-blur-sm z-50 hidden transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<aside class="fixed top-0 right-0 h-full w-[400px] bg-surface-container-lowest border-l border-outline-variant z-[60] translate-x-full drawer-transition shadow-2xl overflow-y-auto" id="detail-drawer">
+<div class="p-stack-lg">
+<!-- Drawer Header -->
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[28px]">rocket_launch</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md leading-tight">Launch MVP Platform</h2>
+<span class="text-label-sm text-secondary font-bold uppercase tracking-widest">PJ-4482</span>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-low text-outline" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="p-4 rounded-xl border border-outline-variant bg-surface-container-low">
+<span class="text-label-sm text-outline block mb-1">Priority</span>
+<div class="flex items-center gap-2 text-error font-bold">
+<span class="material-symbols-outlined text-[18px]">priority_high</span>
+                        Critical
+                    </div>
+</div>
+<div class="p-4 rounded-xl border border-outline-variant bg-surface-container-low">
+<span class="text-label-sm text-outline block mb-1">Due Date</span>
+<div class="flex items-center gap-2 font-bold">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                        Jun 15, 2025
+                    </div>
+</div>
+</div>
+<!-- Progress -->
+<div class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<span class="text-label-md font-bold">Project Completion</span>
+<span class="text-headline-md text-primary">68%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[68%]"></div>
+</div>
+</div>
+<!-- Milestones -->
+<div class="mb-8">
+<h3 class="text-label-sm font-bold text-outline uppercase tracking-wider mb-4">Milestones</h3>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="w-0.5 h-full bg-secondary/30 mt-1"></div>
+</div>
+<div class="pb-4">
+<p class="text-label-md font-bold">Core Architecture Finalized</p>
+<p class="text-body-sm text-outline">Completed on Apr 24</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="w-0.5 h-full bg-secondary/30 mt-1"></div>
+</div>
+<div class="pb-4">
+<p class="text-label-md font-bold">Alpha Feature Lock</p>
+<p class="text-body-sm text-outline">Completed on May 02</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full border-2 border-secondary bg-surface-container-lowest flex items-center justify-center text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="w-0.5 h-full bg-surface-container-high mt-1"></div>
+</div>
+<div class="pb-4">
+<p class="text-label-md font-bold">Beta Stakeholder Review</p>
+<p class="text-body-sm text-secondary font-medium">In Progress</p>
+</div>
+</div>
+<div class="flex gap-4 opacity-50">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant bg-surface-container-lowest"></div>
+</div>
+<div class="pb-4">
+<p class="text-label-md font-bold">Public Beta Launch</p>
+<p class="text-body-sm text-outline">Scheduled for Jun 01</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Stream -->
+<div>
+<h3 class="text-label-sm font-bold text-outline uppercase tracking-wider mb-4">Activity Stream</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</div>
+<div>
+<p class="text-body-sm"><span class="font-bold">Engineering Agent</span> pushed 12 commits to <code class="bg-surface-container-low px-1 rounded">feat/auth-v2</code></p>
+<p class="text-[11px] text-outline mt-1">14 minutes ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">comment</span>
+</div>
+<div>
+<p class="text-body-sm"><span class="font-bold">Alex Founder</span> commented on "Beta Review": <span class="italic text-on-surface-variant">"Looks solid, prioritize the mobile nav."</span></p>
+<p class="text-[11px] text-outline mt-1">2 hours ago</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="mt-12 pt-8 border-t border-outline-variant">
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-bold hover:opacity-90 transition-opacity">
+                    Open Full Board View
+                </button>
+</div>
+</div>
+</aside>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('detail-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            
+            if (drawer.classList.contains('translate-x-full')) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.remove('opacity-100');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        // Global key listener for escape to close drawer
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const drawer = document.getElementById('detail-drawer');
+                if (!drawer.classList.contains('translate-x-full')) toggleDrawer();
+            }
+        });
+    </script>
+</body></html>

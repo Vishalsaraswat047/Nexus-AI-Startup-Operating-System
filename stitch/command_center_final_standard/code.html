@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus AI | Enterprise OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "secondary": "#4648d4",
+                        "primary-container": "#131b2e",
+                        "inverse-surface": "#2f3131",
+                        "inverse-primary": "#bec6e0",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "surface": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary-container": "#828486",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#07006c",
+                        "on-secondary-container": "#fffbff",
+                        "outline": "#76777d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "on-primary-fixed": "#131b2e",
+                        "on-background": "#1a1c1c",
+                        "background": "#f9f9f9",
+                        "surface-container-low": "#f3f3f4",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-primary-container": "#7c839b",
+                        "surface-tint": "#565e74",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-fixed": "#dae2fd",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-fixed": "#e1e0ff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#191c1e",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary-container": "#6063ee",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "primary": "#000000",
+                        "on-surface": "#1a1c1c",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#e1e2e4",
+                        "surface-container": "#eeeeee",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#191c1e",
+                        "tertiary": "#000000",
+                        "surface-dim": "#dadada"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar-width": "220px",
+                        "stack-md": "16px",
+                        "container-max": "1440px",
+                        "margin-page": "40px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-item-active {
+            border-right: 2px solid theme('colors.secondary');
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-[220px] bg-surface-container-lowest border-r border-outline-variant flex flex-col py-stack-md px-stack-sm z-50">
+<div class="px-4 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white font-bold">N</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary leading-tight">Nexus AI</h1>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">Enterprise OS</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto space-y-1">
+<!-- Nav Item Generator Based on JSON -->
+<a class="flex items-center gap-3 px-4 py-2.5 bg-surface-container-low text-primary font-semibold border-r-2 border-secondary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm">Executive Home</span>
+</a>
+<div class="px-4 py-2 text-[10px] font-bold text-outline tracking-wider uppercase mt-4">Core</div>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">track_changes</span>
+<span class="text-sm">Goals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+<span class="text-sm">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span class="text-sm">Timeline</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">corporate_fare</span>
+<span class="text-sm">Departments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="text-sm">AI Workforce</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="text-sm">Reports</span>
+</a>
+<div class="px-4 py-2 text-[10px] font-bold text-outline tracking-wider uppercase mt-4">Intelligence</div>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="text-sm">Knowledge Base</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">travel_explore</span>
+<span class="text-sm">Market &amp; Research</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+<span class="text-sm">Analytics</span>
+</a>
+<div class="px-4 py-2 text-[10px] font-bold text-outline tracking-wider uppercase mt-4">System</div>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+<span class="text-sm">Integrations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+<span class="text-sm">Admin Center</span>
+</a>
+</nav>
+<div class="mt-auto px-4 pt-4 border-t border-outline-variant space-y-4">
+<div class="p-3 bg-secondary rounded-lg text-white">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[10px] font-bold uppercase">Pro Plan</span>
+<span class="text-[10px] bg-white/20 px-1.5 py-0.5 rounded">Active</span>
+</div>
+<div class="text-xs mb-2 opacity-90">Agents: 98/100</div>
+<div class="w-full bg-white/20 h-1.5 rounded-full mb-3">
+<div class="bg-white h-1.5 rounded-full" style="width: 98%"></div>
+</div>
+<button class="w-full py-2 bg-white text-primary text-xs font-bold rounded-md active:scale-95 transition-transform">Upgrade Plan</button>
+</div>
+<div class="flex items-center gap-3 py-2 cursor-pointer">
+<img alt="Alex Founder" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7G4fTjARgicAsTm_EvcK4evUkbZ1HmSpX70Es6QnyKVuDKDeRzyt_fGxCgZkJGi6cFbA9JMZQ1bWzfbduXkRJRhir_i6QPgQvBhLOAorZr4SbC-RMCpBQLiY61FO64k8_khmA2ppPDrh7o6B_H7sqEcHRywxQoBjogZSf2fZAnESbQ8F_u_wr_KBeHQZ3rTzI59I2V1E-N0D710GLyuVO3HU_-2-uAOYtPUE4_hnXdj7a7wuZQu19HTvwZuYZNYjvJJ8NfHltnM4"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Alex Founder</p>
+<p class="text-[10px] text-on-surface-variant truncate">Founder &amp; CEO</p>
+</div>
+<span class="material-symbols-outlined text-outline ml-auto">expand_more</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[220px] min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="h-16 bg-surface/70 backdrop-blur-xl border-b border-outline-variant flex items-center justify-between px-margin-page sticky top-0 z-40 shadow-sm">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-secondary/20 rounded-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white border-outline-variant rounded-lg text-sm focus:border-secondary focus:ring-0" placeholder="Search anything..." type="text"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 border border-outline-variant rounded px-1.5 py-0.5 text-[10px] text-outline font-mono">⌘K</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">light_mode</span></button>
+<div class="relative">
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-error text-white text-[10px] flex items-center justify-center rounded-full font-bold">3</span>
+</button>
+</div>
+<div class="flex items-center gap-3 border-l border-outline-variant pl-6">
+<div class="text-right">
+<p class="text-sm font-bold">Nexus AI Inc.</p>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-tighter">Growth Stage</p>
+</div>
+<img alt="Profile" class="w-8 h-8 rounded-full border border-outline-variant p-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCii0x_sxINK3FPeyh8Je3h9SHJpkeYM69e9Nj9e4Khq0il6u4ryCFTAUgGNO0sqZT4vX7S55wfm12iiLqCZWH8DyaH2xt6zCcy8GLeVjL58hXox6Hxf-DoRxt0erA611f_712lwTmectCtowv3WxxZSNJ8yDzMFsy1_vaijQtO3p2ECnoQQBN6uaPX1Hq-bRGs-UJAfhIHs4JoshjpHqvveEDrzG-4W1XSN6x61dbYo1GWzStaCxIsPDH5Nkj-FnMQO1iYi-lHRlU"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-margin-page flex-1 space-y-stack-lg max-w-[container-max] mx-auto w-full">
+<!-- Welcome Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg flex items-center gap-2">Good morning, Alex! 👋</h2>
+<p class="text-on-surface-variant mt-1">Here's the real-time overview of your company performance.</p>
+</div>
+<div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg text-sm font-semibold cursor-pointer hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span>May 12, 2025</span>
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Top Row: KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-gutter">
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-4">
+<div class="p-2 bg-emerald-50 rounded-lg"><span class="material-symbols-outlined text-emerald-600">favorite</span></div>
+<span class="text-sm font-bold text-on-surface-variant">Business Health</span>
+</div>
+<div class="text-3xl font-bold mb-1">86%</div>
+<div class="flex items-center gap-1 text-[12px] font-bold text-emerald-600">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> 12% vs last week
+                    </div>
+</div>
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-4">
+<div class="p-2 bg-indigo-50 rounded-lg"><span class="material-symbols-outlined text-indigo-600">payments</span></div>
+<span class="text-sm font-bold text-on-surface-variant">Monthly Revenue</span>
+</div>
+<div class="text-3xl font-bold mb-1">$24,580</div>
+<div class="flex items-center gap-1 text-[12px] font-bold text-indigo-600">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> 18% vs last month
+                    </div>
+</div>
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-4">
+<div class="p-2 bg-teal-50 rounded-lg"><span class="material-symbols-outlined text-teal-600">schedule</span></div>
+<span class="text-sm font-bold text-on-surface-variant">Runway</span>
+</div>
+<div class="text-3xl font-bold mb-1">11.4 Months</div>
+<span class="text-[12px] font-bold text-teal-600 px-2 py-0.5 bg-teal-50 rounded-full">Healthy</span>
+</div>
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-4">
+<div class="p-2 bg-rose-50 rounded-lg"><span class="material-symbols-outlined text-rose-600">local_fire_department</span></div>
+<span class="text-sm font-bold text-on-surface-variant">Burn Rate</span>
+</div>
+<div class="text-3xl font-bold mb-1">$2,150 <span class="text-sm font-normal text-on-surface-variant">/mo</span></div>
+<span class="text-[12px] font-bold text-rose-600 px-2 py-0.5 bg-rose-50 rounded-full">Controlled</span>
+</div>
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-4">
+<div class="p-2 bg-orange-50 rounded-lg"><span class="material-symbols-outlined text-orange-600">target</span></div>
+<span class="text-sm font-bold text-on-surface-variant">Active Goals</span>
+</div>
+<div class="text-3xl font-bold mb-1">6</div>
+<div class="text-[12px] font-bold text-emerald-600">3 on track</div>
+</div>
+</div>
+<!-- Middle Section: 3-column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Column 1: Active Goals -->
+<div class="lg:col-span-4 bg-white border border-outline-variant rounded-2xl p-6 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold">Active Goals</h3>
+<a class="text-xs text-secondary font-bold hover:underline" href="#">View all</a>
+</div>
+<div class="space-y-6">
+<div class="group cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-purple-50 rounded-lg"><span class="material-symbols-outlined text-purple-600">rocket_launch</span></div>
+<div>
+<p class="text-sm font-bold">Launch MVP</p>
+<p class="text-[10px] text-outline">Build and launch the core product</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">82%</p>
+<p class="text-[10px] text-outline">Due in 12 days</p>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full">
+<div class="bg-purple-600 h-1.5 rounded-full transition-all duration-1000" style="width: 82%"></div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-emerald-50 rounded-lg"><span class="material-symbols-outlined text-emerald-600">group_add</span></div>
+<div>
+<p class="text-sm font-bold">Reach 1000 Users</p>
+<p class="text-[10px] text-outline">Grow user base to 1000+</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">41%</p>
+<p class="text-[10px] text-outline">Due in 28 days</p>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full">
+<div class="bg-emerald-600 h-1.5 rounded-full transition-all duration-1000" style="width: 41%"></div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-orange-50 rounded-lg"><span class="material-symbols-outlined text-orange-600">monetization_on</span></div>
+<div>
+<p class="text-sm font-bold">Increase MRR to $10k</p>
+<p class="text-[10px] text-outline">Achieve monthly recurring revenue</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">60%</p>
+<p class="text-[10px] text-outline">Due in 42 days</p>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full">
+<div class="bg-orange-500 h-1.5 rounded-full transition-all duration-1000" style="width: 60%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2: Project Pipeline -->
+<div class="lg:col-span-5 bg-white border border-outline-variant rounded-2xl p-6 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold">Project Pipeline</h3>
+<div class="flex gap-2">
+<span class="text-[10px] font-bold px-2 py-1 bg-surface-container rounded-md">All (18)</span>
+<span class="text-[10px] font-bold px-2 py-1 text-outline hover:bg-surface-container rounded-md cursor-pointer">In Progress (9)</span>
+</div>
+</div>
+<div class="space-y-5">
+<div class="flex items-center justify-between">
+<div class="flex-1">
+<div class="flex items-center justify-between mb-1">
+<span class="text-sm font-bold">MVP Development</span>
+<span class="text-xs font-bold text-secondary">68%</span>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 68%"></div>
+</div>
+</div>
+<div class="flex -space-x-2 ml-6">
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjOFdaDHTrCDgBq185tkWONHtbxL_zf14TkMVxbZWzOr6oSCjU2CFZYXZ4OMckNTQOX-nheZohm-EpOj9HM3Y_YhnSOgudmRIbBela3aLCwfPyrFM5nZTYzxFgqYO2Q1d8LlJrWHe_MB5Xsw-B0YZxV_KQh5PzH6xqq6ZZ2yWRbySNsqog8DH_nvxbwhjSJt5xVTVX_v9cM8d85UuHwSHWOFBddMVmL4l72_lpZIEdRRBgGX4f-V6RMJ1GHfXU7_UrhyMLdGVfuPA"/>
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUVgaWnfKi8PvrkI5kASsGGznnWoJNs4iht0t0nIxMyJ0rPvx2mjIqV97sSf_RWiRa7AnNebJeVT_ptNmey_tzWRPh7j7zMwJRXGv7S3EtPpI9e8egZ4FFM533ok1HI2XYUz6o2tamF8OE5iO0UlX9ZlEJivJJ-qo5PBht_wImvasfKSZHPP13YulDq8VucjdPXplkSDkd83CnL_Dw-D0nT6o50n9tVblXWAG8FxCerK8PclsN-Cjl7I6dUJdPv66f7VuPuA57_DY"/>
+<div class="w-6 h-6 rounded-full bg-surface-container border-2 border-white flex items-center justify-center text-[10px] font-bold">+3</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex-1">
+<div class="flex items-center justify-between mb-1">
+<span class="text-sm font-bold">Landing Page Redesign</span>
+<span class="text-xs font-bold text-secondary">75%</span>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 75%"></div>
+</div>
+</div>
+<div class="flex -space-x-2 ml-6">
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHO3ap9FMVAkb_bkfl1lQwg8GVNxThJx1yi7MFGt8BasMzE5Bymwvw0rPHFyIJndC5ZdSPZ07sR1XV2YzkS36EwOyRnzxYuhg1jjrjyX3d6YePlZbkS5x2fisU6JXbJn9FH8bQJrgNs9u3FV7jf-7zYxjTUisvbHtXZ0PUI8Fk4nilkyGtnmXvdEZRUVs8awmxzzBcxByK540YoAGY2sNSK1wPBf9wsshfTncWyNd0kZqSxc-gilICXi_vmDDj4fIUOmUyEETuI_Q"/>
+<div class="w-6 h-6 rounded-full bg-surface-container border-2 border-white flex items-center justify-center text-[10px] font-bold">+2</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex-1">
+<div class="flex items-center justify-between mb-1">
+<span class="text-sm font-bold">AI Recommendation Engine</span>
+<span class="text-xs font-bold text-secondary">35%</span>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 35%"></div>
+</div>
+</div>
+<div class="flex -space-x-2 ml-6">
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu5sL9Lmy6xk3CcEUXk5mOZwiALH7Q4JujnUOG-mZI5SHm0WyyaK4A3fPC6pevcyv0IDkLPHVUjkpUmWu2TBTjQFQzB3_mL4rc42cNIz36tDFUlzoBQqZwHQ0pEai3RKsByMQpgzU2k2l6yOf2B4en8YXiij16GPnJVV70sWnU2IAn9jJaRBmoukrkNMahlM1kMhN_xRLxbN0uisQrqlS9jwj2rI-hwQ8fO31QvQahZ2srIZoFAdUMf2kchZ9weBPfHk_50UApyT0"/>
+<div class="w-6 h-6 rounded-full bg-surface-container border-2 border-white flex items-center justify-center text-[10px] font-bold">+4</div>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<div class="flex items-center justify-between mb-2">
+<h4 class="text-xs font-bold uppercase tracking-wider text-outline">Department Status</h4>
+<a class="text-[10px] text-secondary font-bold" href="#">Manage</a>
+</div>
+<div class="grid grid-cols-2 gap-x-4 gap-y-2">
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-[11px] font-semibold">Research</span>
+</div>
+<div class="w-6 h-3 bg-indigo-600 rounded-full relative"><div class="absolute right-0.5 top-0.5 w-2 h-2 bg-white rounded-full"></div></div>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-[11px] font-semibold">Product</span>
+</div>
+<div class="w-6 h-3 bg-indigo-600 rounded-full relative"><div class="absolute right-0.5 top-0.5 w-2 h-2 bg-white rounded-full"></div></div>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-[11px] font-semibold">Engineering</span>
+</div>
+<div class="w-6 h-3 bg-indigo-600 rounded-full relative"><div class="absolute right-0.5 top-0.5 w-2 h-2 bg-white rounded-full"></div></div>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-[11px] font-semibold">Design</span>
+</div>
+<div class="w-6 h-3 bg-indigo-600 rounded-full relative"><div class="absolute right-0.5 top-0.5 w-2 h-2 bg-white rounded-full"></div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 3: Risks & Activity -->
+<div class="lg:col-span-3 space-y-gutter">
+<!-- Risks & Alerts -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold">Risk &amp; Alerts</h3>
+<a class="text-xs text-secondary font-bold hover:underline" href="#">View all</a>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-3 p-3 bg-red-50/50 rounded-xl border border-red-100">
+<span class="material-symbols-outlined text-red-600 text-lg">error</span>
+<div>
+<div class="flex justify-between w-full">
+<p class="text-[11px] font-bold text-red-700">High Burn Rate</p>
+<span class="text-[10px] text-red-600 font-bold uppercase">High</span>
+</div>
+<p class="text-[10px] text-red-600/80 mt-0.5 leading-relaxed">Cash outflow high for next 2 months</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 bg-orange-50/50 rounded-xl border border-orange-100">
+<span class="material-symbols-outlined text-orange-600 text-lg">warning</span>
+<div>
+<div class="flex justify-between w-full">
+<p class="text-[11px] font-bold text-orange-700">MVP Delay Risk</p>
+<span class="text-[10px] text-orange-600 font-bold uppercase">Medium</span>
+</div>
+<p class="text-[10px] text-orange-600/80 mt-0.5 leading-relaxed">2 tasks behind schedule</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold">Recent Activity</h3>
+<a class="text-xs text-secondary font-bold hover:underline" href="#">View all</a>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</div>
+<div class="overflow-hidden">
+<p class="text-[11px] leading-tight"><span class="font-bold">Engineering Agent</span> created 12 new PRs</p>
+<p class="text-[10px] text-outline mt-0.5">2 min ago</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded bg-purple-100 flex items-center justify-center text-purple-600 flex-shrink-0">
+<span class="material-symbols-outlined text-sm">campaign</span>
+</div>
+<div class="overflow-hidden">
+<p class="text-[11px] leading-tight"><span class="font-bold">Marketing Agent</span> launched campaign</p>
+<p class="text-[10px] text-outline mt-0.5">18 min ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Execution Timeline -->
+<div class="bg-white border border-outline-variant rounded-2xl p-8 shadow-sm">
+<h3 class="font-bold mb-10">Execution Timeline</h3>
+<div class="relative">
+<!-- Progress Line -->
+<div class="absolute top-[44px] left-0 right-0 h-1 bg-surface-container-high z-0">
+<div class="bg-indigo-600 h-full w-[45%]"></div>
+</div>
+<!-- Timeline Nodes -->
+<div class="grid grid-cols-7 relative z-10">
+<div class="text-center group">
+<div class="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-white shadow-sm ring-4 ring-emerald-100 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-emerald-600">lightbulb</span>
+</div>
+<p class="text-xs font-bold">Idea</p>
+<p class="text-[10px] text-emerald-600 font-bold mt-1">Completed</p>
+<p class="text-[10px] text-outline">Jan 10</p>
+</div>
+<div class="text-center group">
+<div class="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-white shadow-sm ring-4 ring-emerald-100 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-emerald-600">search</span>
+</div>
+<p class="text-xs font-bold">Research</p>
+<p class="text-[10px] text-emerald-600 font-bold mt-1">Completed</p>
+<p class="text-[10px] text-outline">Jan 28</p>
+</div>
+<div class="text-center group">
+<div class="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-white shadow-sm ring-4 ring-emerald-100 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-emerald-600">verified</span>
+</div>
+<p class="text-xs font-bold">Validation</p>
+<p class="text-[10px] text-emerald-600 font-bold mt-1">Completed</p>
+<p class="text-[10px] text-outline">Feb 12</p>
+</div>
+<div class="text-center group">
+<div class="w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-white shadow-lg transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined">code</span>
+</div>
+<p class="text-xs font-bold">MVP Build</p>
+<p class="text-[10px] text-indigo-600 font-bold mt-1">In Progress (60%)</p>
+<p class="text-[10px] text-outline">Feb 10 - May 20</p>
+</div>
+<div class="text-center group">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-white shadow-sm transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-outline">rocket</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant">Launch</p>
+<p class="text-[10px] text-outline font-bold mt-1">Upcoming</p>
+<p class="text-[10px] text-outline">May 21 - Jun 10</p>
+</div>
+<div class="text-center group">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-white shadow-sm transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-outline">trending_up</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant">Growth</p>
+<p class="text-[10px] text-outline font-bold mt-1">Upcoming</p>
+<p class="text-[10px] text-outline">Jun 11 - Aug 30</p>
+</div>
+<div class="text-center group">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-white shadow-sm transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-outline">flag</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant">Scale</p>
+<p class="text-[10px] text-outline font-bold mt-1">Upcoming</p>
+<p class="text-[10px] text-outline">Aug 31+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Workforce Row -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<h3 class="font-bold">AI Workforce</h3>
+<a class="text-xs text-secondary font-bold hover:underline" href="#">View all agents</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-8 gap-4">
+<div class="bg-white border border-outline-variant rounded-xl p-4 shadow-sm hover:border-secondary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 bg-purple-50 rounded flex items-center justify-center text-purple-600">
+<span class="material-symbols-outlined text-sm">crown</span>
+</div>
+<span class="text-[11px] font-bold">CEO Agent</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+<span class="text-[9px] font-bold text-emerald-600">Working</span>
+</div>
+<p class="text-[10px] text-outline leading-tight group-hover:text-primary transition-colors">Strategic Planning</p>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-4 shadow-sm hover:border-secondary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 bg-blue-50 rounded flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined text-sm">business_center</span>
+</div>
+<span class="text-[11px] font-bold">COO Agent</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+<span class="text-[9px] font-bold text-emerald-600">Working</span>
+</div>
+<p class="text-[10px] text-outline leading-tight group-hover:text-primary transition-colors">Managing 18 projects</p>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-4 shadow-sm hover:border-secondary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 bg-indigo-50 rounded flex items-center justify-center text-indigo-600">
+<span class="material-symbols-outlined text-sm">code</span>
+</div>
+<span class="text-[11px] font-bold">CTO Agent</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+<span class="text-[9px] font-bold text-emerald-600">Working</span>
+</div>
+<p class="text-[10px] text-outline leading-tight group-hover:text-primary transition-colors">Tech Architecture</p>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-4 shadow-sm hover:border-secondary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 bg-teal-50 rounded flex items-center justify-center text-teal-600">
+<span class="material-symbols-outlined text-sm">inventory_2</span>
+</div>
+<span class="text-[11px] font-bold">Product Agent</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+<span class="text-[9px] font-bold text-emerald-600">Working</span>
+</div>
+<p class="text-[10px] text-outline leading-tight group-hover:text-primary transition-colors">MVP Features</p>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-4 shadow-sm hover:border-secondary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 bg-pink-50 rounded flex items-center justify-center text-pink-600">
+<span class="material-symbols-outlined text-sm">draw</span>
+</div>
+<span class="text-[11px] font-bold">Design Agent</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
+<span class="text-[9px] font-bold text-orange-600">Idle</span>
+</div>
+<p class="text-[10px] text-outline leading-tight group-hover:text-primary transition-colors">Review Assets</p>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-4 shadow-sm hover:border-secondary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 bg-amber-50 rounded flex items-center justify-center text-amber-600">
+<span class="material-symbols-outlined text-sm">campaign</span>
+</div>
+<span class="text-[11px] font-bold">Marketing Agent</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+<span class="text-[9px] font-bold text-emerald-600">Working</span>
+</div>
+<p class="text-[10px] text-outline leading-tight group-hover:text-primary transition-colors">Social Strategy</p>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-4 shadow-sm hover:border-secondary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 bg-green-50 rounded flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined text-sm">savings</span>
+</div>
+<span class="text-[11px] font-bold">Finance Agent</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+<span class="text-[9px] font-bold text-emerald-600">Working</span>
+</div>
+<p class="text-[10px] text-outline leading-tight group-hover:text-primary transition-colors">Burn Analysis</p>
+</div>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center text-outline hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">add</span>
+<p class="text-[10px] font-bold mt-2">Hire Agent</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Nexus AI Assistant Overlay (Bottom Right) -->
+<div class="fixed bottom-6 right-6 w-80 bg-primary-container text-white rounded-2xl shadow-2xl overflow-hidden z-50 flex flex-col border border-on-primary-container/20">
+<div class="p-4 flex items-center justify-between border-b border-white/10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+</div>
+<div>
+<h4 class="text-xs font-bold">Nexus Assistant</h4>
+<div class="flex items-center gap-1">
+<span class="w-1 h-1 bg-emerald-400 rounded-full"></span>
+<span class="text-[9px] text-white/60">Online</span>
+</div>
+</div>
+</div>
+<button class="text-white/40 hover:text-white transition-colors"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="p-4 space-y-4 max-h-64 overflow-y-auto">
+<p class="text-[11px] text-on-primary-container bg-white/5 p-3 rounded-xl border border-white/5">How can I help you today Alex?</p>
+<div class="space-y-2">
+<button class="w-full text-left text-[11px] p-2 hover:bg-white/10 rounded-lg border border-white/10 transition-colors">Analyze my business health</button>
+<button class="w-full text-left text-[11px] p-2 hover:bg-white/10 rounded-lg border border-white/10 transition-colors">Create new goal</button>
+<button class="w-full text-left text-[11px] p-2 hover:bg-white/10 rounded-lg border border-white/10 transition-colors">Generate investor update</button>
+</div>
+</div>
+<div class="p-4 bg-white/5 border-t border-white/10 flex gap-2">
+<input class="bg-transparent border-none focus:ring-0 text-xs flex-1 placeholder-white/40" placeholder="Ask anything..." type="text"/>
+<button class="p-1.5 bg-indigo-600 rounded-lg hover:bg-indigo-500 transition-colors"><span class="material-symbols-outlined text-sm">send</span></button>
+</div>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+        // Placeholder for future interactivity (animations, live updates)
+        document.querySelectorAll('.active\\:scale-95').forEach(el => {
+            el.addEventListener('mousedown', () => el.style.transform = 'scale(0.95)');
+            el.addEventListener('mouseup', () => el.style.transform = 'scale(1)');
+            el.addEventListener('mouseleave', () => el.style.transform = 'scale(1)');
+        });
+    </script>
+</body></html>
