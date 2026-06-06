@@ -1,28 +1,20 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 async function handleOperations(req: VercelRequest, res: VercelResponse) {
-  const { url = '', method, query, body } = req;
+  const { method, query, body } = req;
+  const url = req.url || '';
 
   try {
-    const path = url.replace('/api/operations', '').split('?')[0];
-    const pathParts = path.split('/').filter(Boolean);
+    const params = query as Record<string, string | string[] | undefined>;
+    const companyId = params.companyId as string || 'default-company';
+    const path = params.path as string || '';
 
-    if (pathParts.length === 0) {
-      return res.status(404).json({ error: 'Route not found' });
-    }
-
-    const companyId = pathParts[0] || query.companyId || 'default-company';
-    const remaining = pathParts.slice(1);
-    const resource = remaining[0];
-    const subResource = remaining[1];
-    const action = remaining[remaining.length - 1];
-
-    if (resource === 'agent-runtimes' && method === 'GET') {
+    if (url.includes('agent-runtimes') && method === 'GET') {
       const { listAgentRuntimes } = await import('../server/operations/agentRuntime');
       return res.json({ agents: listAgentRuntimes() });
     }
 
-    if (resource === 'execution') {
+    if (url.includes('execution')) {
       const { startExecution, tickExecution, chooseNextPhase, getExecution, submitBrandDiscovery } = await import('../server/operations/executionEngine');
 
       if (method === 'GET') {
@@ -34,7 +26,7 @@ async function handleOperations(req: VercelRequest, res: VercelResponse) {
       }
 
       if (method === 'POST') {
-        if (action === 'start') {
+        if (url.includes('/start')) {
           if (!body.directive?.trim()) {
             return res.status(400).json({ error: 'directive required' });
           }
@@ -48,12 +40,12 @@ async function handleOperations(req: VercelRequest, res: VercelResponse) {
           return res.json(view);
         }
 
-        if (action === 'tick') {
+        if (url.includes('/tick')) {
           const view = await tickExecution(companyId);
           return res.json(view ?? { error: 'No execution' });
         }
 
-        if (action === 'choose') {
+        if (url.includes('/choose')) {
           const { phaseKey } = body as { phaseKey?: string };
           if (!phaseKey) {
             return res.status(400).json({ error: 'phaseKey required' });
@@ -65,7 +57,7 @@ async function handleOperations(req: VercelRequest, res: VercelResponse) {
           return res.json(view);
         }
 
-        if (action === 'brand-discovery') {
+        if (url.includes('brand-discovery')) {
           const { mainBrandValues, whatsNew, brandPersonality, taglineOrVision } = body as {
             mainBrandValues?: string;
             whatsNew?: string;
@@ -86,54 +78,25 @@ async function handleOperations(req: VercelRequest, res: VercelResponse) {
       }
     }
 
-    if (resource === 'snapshot' && method === 'GET') {
+    if (url.includes('snapshot') && method === 'GET') {
       const { getCompanySnapshot } = await import('../server/operations/store');
       return res.json(getCompanySnapshot(companyId));
     }
 
-    if (resource === 'events' && method === 'GET') {
+    if (url.includes('events') && method === 'GET') {
       const { listEvents } = await import('../server/operations/eventLog');
-      const limit = Number(query.limit) || 50;
+      const limit = Number(params.limit) || 50;
       return res.json({ events: listEvents(companyId, limit) });
     }
 
-    if (resource === 'tasks') {
-      if (method === 'GET') {
-        const { listTasks } = await import('../server/operations/taskBus');
-        return res.json({ tasks: listTasks(companyId) });
-      }
-      if (method === 'POST') {
-        const { assignTask } = await import('../server/operations/taskBus');
-        const { title, assignee, department, project } = body as {
-          title?: string;
-          assignee?: string;
-          department?: string;
-          project?: string;
-        };
-        if (!title || !assignee || !department) {
-          return res.status(400).json({ error: 'title, assignee, department required' });
-        }
-        const task = assignTask(companyId, { title, assignee, department, project });
-        return res.json({ task });
-      }
+    if (url.includes('/tasks') && method === 'GET') {
+      const { listTasks } = await import('../server/operations/taskBus');
+      return res.json({ tasks: listTasks(companyId) });
     }
 
-    if (resource === 'approvals' && subResource === 'pending' && method === 'GET') {
+    if (url.includes('approvals/pending') && method === 'GET') {
       const { listPendingApprovals } = await import('../server/operations/approvalPolicy');
       return res.json({ approvals: listPendingApprovals(companyId) });
-    }
-
-    if (resource === 'approvals' && subResource && method === 'POST') {
-      const { resolveApproval } = await import('../server/operations/approvalPolicy');
-      const { status } = body as { status?: 'approved' | 'declined' };
-      if (status !== 'approved' && status !== 'declined') {
-        return res.status(400).json({ error: 'status must be approved or declined' });
-      }
-      const approval = resolveApproval(companyId, subResource, status);
-      if (!approval) {
-        return res.status(404).json({ error: 'Approval not found' });
-      }
-      return res.json({ approval });
     }
 
     return res.status(404).json({ error: 'Route not found' });
